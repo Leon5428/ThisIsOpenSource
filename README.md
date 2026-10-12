@@ -1,2 +1,2 @@
-# ThisIsOpenSource-
+# ThisIsOpenSource!
 山东大学网络空间安全学院的开源入门课程，帮助学习者理解开源理念、掌握协作工具并参与真实的开源项目。
