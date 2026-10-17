@@ -1,0 +1,101 @@
+\documentclass[aspectratio=169]{beamer}
+
+% 中文支持
+\usepackage[UTF8]{ctex}
+
+% 数学相关宏包
+\usepackage{amsmath,amssymb,enumerate}
+
+% PPT 主题
+\usetheme{Madrid}
+
+% 字体设置
+\setCJKmainfont{KaiTi}
+\setCJKsansfont{KaiTi}
+\setCJKmonofont{KaiTi}
+
+% 封面信息
+\title{这就是开源}
+\subtitle{第一讲：从操作系统到开源}
+\author{潘宇琦\hspace*{1em}申鹏威}
+\date{2026年10月}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+	
+\begin{frame}{计算机里面有什么？}
+\begin{block}{随便抓来一台电脑}
+\begin{itemize}
+	\item 处理器(CPU):厨师，按照菜谱做菜(执行程序)
+	\item 内存(RAM)：案板，临时放置正在处理的食材(正在运行的程序)
+	\item 硬盘(Disk)：冰箱，长期保存食材和菜谱(文件与程序)
+\end{itemize}
+\end{block}
+
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.32\textwidth}
+	\centering
+	\includegraphics[
+	width=\linewidth,
+	height=3cm,
+	keepaspectratio
+	]{images/1.png}
+		
+	\small CPU
+\end{column}
+	
+\begin{column}{0.32\textwidth}
+	\centering
+	\includegraphics[
+	width=\linewidth,
+	height=3cm,
+	keepaspectratio
+	]{images/2.png}
+		
+	\small RAM
+\end{column}
+	
+\begin{column}{0.32\textwidth}
+	\centering
+	\includegraphics[
+	width=\linewidth,
+	height=3cm,
+	keepaspectratio
+	]{images/3.png}
+		
+	\small Disk
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{为什么我们需要操作系统}
+\begin{block}{如果你正在使用电脑...}
+\hspace*{2em}这时，你的导员在QQ上给你发了文件，你的部长在微信上给你发了通知，你的同学在抖音上给你转发了视频...那处理器该先给谁用呢？内存该怎么分配呢？
+
+\par\hspace*{2em}我们既想让它们运行又不想让它们挤破头，该怎么办呢？
+\end{block}
+
+\pause
+\begin{block}{我们需要一个管理者！}
+\hspace*{2em}就像厨房需要厨师长安排厨师的工作、分配案板的空间一样，计算机也需要一个管理者，负责协调各个程序对硬件资源的使用。
+
+\par\hspace*{2em}它要安排程序何时使用处理器、合理分配内存，还要尽可能避免不同程序之间的相互干扰。
+
+\par\hspace*{2em}\alert{这个管理者，就是操作系统（Operating System，OS）。}
+\end{block}
+\end{frame}
+
+\begin{frame}{什么是操作系统}
+	
+\end{frame}
+
+
+
+
+
+
+	
+\end{document}
