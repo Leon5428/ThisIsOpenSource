@@ -80,7 +80,7 @@
 
 \pause
 \begin{block}{我们需要一个管理者！}
-\hspace*{2em}就像厨房需要厨师长安排厨师的工作、分配案板的空间一样，计算机也需要一个管理者，负责协调各个程序对硬件资源的使用。
+\hspace*{2em}就像厨房需要厨师长安排厨师的工作、分配厨具的使用一样，计算机也需要一个管理者，负责协调各个程序对硬件资源的使用。
 
 \par\hspace*{2em}它要安排程序何时使用处理器、合理分配内存，还要尽可能避免不同程序之间的相互干扰。
 
@@ -88,8 +88,36 @@
 \end{block}
 \end{frame}
 
-\begin{frame}{什么是操作系统}
-	
+\begin{frame}{什么是OS}
+	\begin{block}{操作系统（Operating System，OS）}
+		\hspace*{2em}操作系统是管理计算机硬件与软件资源，并为应用程序提供运行环境和基础服务的系统软件。
+	\end{block}
+		
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.48\textwidth}
+			\begin{block}{资源管理者}
+				\begin{itemize}
+					\item 安排处理器工作
+					\item 分配内存空间
+					\item 管理文件与设备
+				\end{itemize}
+			\end{block}
+		\end{column}
+			
+		\begin{column}{0.48\textwidth}
+			\begin{block}{程序服务者}
+				\begin{itemize}
+					\item 帮助程序读写文件
+					\item 提供统一的设备接口
+					\item 为程序提供运行环境
+				\end{itemize}
+			\end{block}
+		\end{column}
+	\end{columns}
+		
+	\begin{center}
+		\alert{操作系统既是资源的管理者，也是连接应用程序与计算机硬件的桥梁。}
+	\end{center}
 \end{frame}
 
 
