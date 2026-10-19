@@ -121,9 +121,98 @@
 \end{frame}
 
 
+\begin{frame}{为什么会是程序服务者？}
+	
+	\begin{block}{当有人在微信上给你发送了一张图片}
+		\hspace*{2em}当你点击“保存”时，程序需要将图片保存到硬盘上。但程序应该怎样操作硬盘呢？
+	\end{block}
+	
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.48\textwidth}
+			\begin{block}{没有统一的系统服务}
+				程序需要自行处理存储设备的
+				操作细节，甚至适配不同的硬件。
+			\end{block}
+		\end{column}
+		
+		\begin{column}{0.48\textwidth}
+			\begin{block}{有操作系统提供服务}
+				程序只需要请求“写入文件”，
+				操作系统就可以帮助完成底层操作。
+			\end{block}
+		\end{column}
+	\end{columns}
+	
+	\begin{block}{保存图片的过程（简化）}
+		\centering
+		微信
+		$\longrightarrow$
+		操作系统
+		$\longrightarrow$
+		存储设备
+	\end{block}
+	
+	\vspace{0.3cm}
+	
+	\begin{center}
+		\alert{操作系统为应用程序提供统一的服务，
+			让程序不必直接处理复杂的硬件细节。}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}{操作系统发展史}
+	
+\begin{block}{世界早期的电子计算机——ENIAC}
+	\centering
+	\includegraphics[
+	width=0.75\textwidth,
+	height=4cm,
+	keepaspectratio
+	]{images/5.jpg}
+\end{block}
+
+\begin{block}{但是}
+	这时的电子计算机尚未拥有现代意义上的操作系统，程序的装载、准备和运行需要大量人工参与，十分复杂。
+\end{block}
+
+\end{frame}
 
 
+\begin{frame}{操作系统发展史}
+	
+	\begin{block}{真的需要那么多人工参与吗？}
+		\hspace*{2em}假设我们有 100 个计算任务，
+		如果每完成一个任务，都需要工作人员
+		手动准备下一个任务，不仅麻烦，
+		还会让昂贵的计算机白白等待。
+	\end{block}
+	
+	\vspace{0.3cm}
+	
+	\begin{block}{能不能让计算机自己工作呢？}
+		\hspace*{2em}能不能提前把任务准备好，
+		让计算机完成一个任务后，
+		自动开始执行下一个任务呢？
+		
+		\centering
+		任务一 $\longrightarrow$ 任务二
+		$\longrightarrow$ 任务三
+		$\longrightarrow$ $\cdots$
+	\end{block}
+	
+	\begin{block}{批处理系统（Batch Processing System）}
+		\hspace*{2em}20 世纪 50 年代，
+		批处理系统逐渐出现。
+		它能够自动组织并依次执行一批作业，
+		减少人工干预，提高计算机的使用效率，但此时的批处理系统，还是一次只运行一次作业。
+	\end{block}
+	
+\end{frame}
 
+\begin{frame}
+	
+\end{frame}
 
 	
 \end{document}
