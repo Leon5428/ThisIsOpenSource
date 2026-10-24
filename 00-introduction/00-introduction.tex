@@ -43,8 +43,6 @@
 	height=3cm,
 	keepaspectratio
 	]{images/1.png}
-		
-	\small CPU
 \end{column}
 	
 \begin{column}{0.32\textwidth}
@@ -54,8 +52,6 @@
 	height=3cm,
 	keepaspectratio
 	]{images/2.png}
-		
-	\small RAM
 \end{column}
 	
 \begin{column}{0.32\textwidth}
@@ -65,8 +61,6 @@
 	height=3cm,
 	keepaspectratio
 	]{images/3.png}
-		
-	\small Disk
 \end{column}
 \end{columns}
 \end{frame}
@@ -78,7 +72,6 @@
 \par\hspace*{2em}我们既想让它们运行又不想让它们挤破头，该怎么办呢？
 \end{block}
 
-\pause
 \begin{block}{我们需要一个管理者！}
 \hspace*{2em}就像厨房需要厨师长安排厨师的工作、分配厨具的使用一样，计算机也需要一个管理者，负责协调各个程序对硬件资源的使用。
 
@@ -88,40 +81,7 @@
 \end{block}
 \end{frame}
 
-\begin{frame}{什么是OS}
-	\begin{block}{操作系统（Operating System，OS）}
-		\hspace*{2em}操作系统是管理计算机硬件与软件资源，并为应用程序提供运行环境和基础服务的系统软件。
-	\end{block}
-		
-	\begin{columns}[T,onlytextwidth]
-		\begin{column}{0.48\textwidth}
-			\begin{block}{资源管理者}
-				\begin{itemize}
-					\item 安排处理器工作
-					\item 分配内存空间
-					\item 管理文件与设备
-				\end{itemize}
-			\end{block}
-		\end{column}
-			
-		\begin{column}{0.48\textwidth}
-			\begin{block}{程序服务者}
-				\begin{itemize}
-					\item 帮助程序读写文件
-					\item 提供统一的设备接口
-					\item 为程序提供运行环境
-				\end{itemize}
-			\end{block}
-		\end{column}
-	\end{columns}
-		
-	\begin{center}
-		\alert{操作系统既是资源的管理者，也是连接应用程序与计算机硬件的桥梁。}
-	\end{center}
-\end{frame}
-
-
-\begin{frame}{为什么会是程序服务者？}
+\begin{frame}{为什么我们需要操作系统}
 	
 	\begin{block}{当有人在微信上给你发送了一张图片}
 		\hspace*{2em}当你点击“保存”时，程序需要将图片保存到硬盘上。但程序应该怎样操作硬盘呢？
@@ -159,6 +119,38 @@
 			让程序不必直接处理复杂的硬件细节。}
 	\end{center}
 	
+\end{frame}
+
+\begin{frame}{什么是OS}
+	\begin{block}{操作系统（Operating System，OS）}
+		\hspace*{2em}操作系统是管理计算机硬件与软件资源，并为应用程序提供运行环境和基础服务的系统软件。
+	\end{block}
+		
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.48\textwidth}
+			\begin{block}{资源管理者}
+				\begin{itemize}
+					\item 安排处理器工作
+					\item 分配内存空间
+					\item 管理文件与设备
+				\end{itemize}
+			\end{block}
+		\end{column}
+			
+		\begin{column}{0.48\textwidth}
+			\begin{block}{程序服务者}
+				\begin{itemize}
+					\item 帮助程序读写文件
+					\item 提供统一的设备接口
+					\item 为程序提供运行环境
+				\end{itemize}
+			\end{block}
+		\end{column}
+	\end{columns}
+		
+	\begin{center}
+		\alert{操作系统既是资源的管理者，也是连接应用程序与计算机硬件的桥梁。}
+	\end{center}
 \end{frame}
 
 \begin{frame}{操作系统发展史}
@@ -225,12 +217,10 @@
 \end{frame}
 
 \begin{frame}{操作系统发展史}
-
 \begin{block}{分时操作系统（Time-Sharing System）}
 	\hspace*{2em}批处理系统虽然提高了计算机的使用效率，
 	但用户提交作业后，往往需要等待才能得到结果，
 	难以直接与计算机交互。
-	
 	\par\hspace*{2em}20 世纪 60 年代，
 	分时操作系统逐渐发展起来。
 	它通过时间片等调度机制，
@@ -238,12 +228,43 @@
 	使每个用户都能通过终端与计算机交互，
 	并获得较为及时的响应。
 \end{block}
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.45\textwidth]{images/8.png}
 \end{figure}
-
 \end{frame}
+
+\begin{frame}{操作系统发展史}
+\begin{block}{话说贝尔实验室}
+\hspace*{2em}20 世纪 60 年代，MIT、贝尔实验室与通用电气公司合作开发了一套名为 Multics 的分时操作系统。但是，随着系统越来越复杂，开发难度和成本也越来越高，开发进度不及预期，最后贝尔实验室退出了该项目。
+\end{block}
+\begin{block}{能不能简单一些呢？UNIX！}
+\hspace*{2em}贝尔实验室的研究人员充分吸取了经验教训，不追求一开始就实现大量复杂功能，而是先构建一套小巧、实用、可以不断扩展的系统，也就是后来的UNIX。
+\begin{itemize}
+	\item 多用户：允许多个用户通过终端共享计算机资源
+	\item 简洁性：使用层次化文件系统，
+	通过 Shell 和各种小工具完成复杂任务
+	\item 可移植性：系统不必完全依赖某一种计算机硬件
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}{操作系统发展史}
+\begin{block}{好景不长}
+\hspace*{2em}UNIX 的设计确实非常成功，吸引了越来越多的开发者和研究机构使用。但是随着UNIX的商业化以及专有软件的普及，UNIX 的使用与传播越来越受到许可证的约束。
+\end{block}
+\begin{block}{当社会越来越依赖软件}
+\hspace*{2em}UNIX 的商业化推动了软件的发展，但随着专有软件与限制性许可证的普及，一些新的问题也逐渐显现：	
+	\begin{itemize}
+		\item 如果厂商停止维护软件，谁来保证它能够继续运行？
+		
+		\item 如果软件存在严重安全漏洞，但厂商迟迟不修复，我们能怎么办？
+		
+		\item 如果一家企业掌握着软件的全部控制权，那么究竟是谁在决定软件的未来？
+	\end{itemize}
+\end{block}
+\end{frame}
+
+
+
 	
 \end{document}
