@@ -248,41 +248,74 @@
 \end{itemize}
 \end{block}
 \end{frame}
+
+
 \begin{frame}{操作系统发展史}
-\begin{block}{好景不长}
-\hspace*{2em}UNIX 的设计确实非常成功，吸引了越来越多的开发者和研究机构使用。但是随着UNIX的商业化以及专有软件的普及，UNIX 的使用与传播越来越受到许可证的约束。
-\end{block}
-\begin{block}{当社会越来越依赖软件}
-\hspace*{2em}UNIX 的商业化推动了软件的发展，但随着专有软件与限制性许可证的普及，一些新的问题也逐渐显现：	
-	\begin{itemize}
-		\item 如果厂商停止维护软件，谁来保证它能够继续运行？
+	
+	\begin{block}{UNIX 走出实验室}
+		\hspace*{2em}凭借优秀的设计与良好的可移植性，
+		UNIX 逐渐从研究机构走向大学与商业市场，
+		吸引了越来越多的开发者和企业参与。
 		
-		\item 如果软件存在严重安全漏洞，但厂商迟迟不修复，我们能怎么办？
+		\par\hspace*{2em}早期的一些大学和研究机构
+		甚至能够获得 UNIX 的源代码，
+		研究它的工作原理，并在许可范围内改进它。
+	\end{block}
+	
+	\vspace{0.4cm}
+	
+	\begin{block}{但软件真的可以自由分享吗？}
+		\hspace*{2em}随着软件商业化与专有许可的普及，
+		用户对软件的使用、修改和传播
+		往往受到越来越多的限制。
 		
-		\item 如果一家企业掌握着软件的全部控制权，那么究竟是谁在决定软件的未来？
-	\end{itemize}
-\end{block}
+		\par\hspace*{2em}假设你发现了一款软件的错误，
+		甚至已经想到了修复办法，
+		却无法获得源代码，
+		或者不被允许分享修改后的版本……
+		
+		\par\hspace*{2em}\alert{难道我们只能依赖软件的原开发者吗？}
+	\end{block}
+	
 \end{frame}
+
+
 
 
 \begin{frame}{从 UNIX 到自由软件}
 	
 	\begin{block}{能不能换一种方式？}
-		\hspace*{2em}软件的商业化并没有错，但我们能不能探索另一种开发方式，让用户不再完全依赖软件的原开发者，而是有权研究、修改和分享软件呢？
+		\hspace*{2em}既然现有软件的使用与修改
+		受到许可证的限制，
+		那我们能不能从头开发一套操作系统，
+		让每一个获得它的人，
+		都有权使用、研究、修改和分享它呢？
 	\end{block}
 	
 	\begin{block}{GNU 计划（GNU Project）}
-		\hspace*{2em}20 世纪 80 年代，Richard Stallman 发起了 GNU 计划，希望开发一套与 UNIX 兼容，但允许用户自由使用、研究、修改和分享的操作系统。	
-		\par\hspace*{2em}GNU 是	``GNU's Not Unix'' 的递归缩写，意为“GNU 不是 UNIX”。
+		\hspace*{2em}20 世纪 80 年代，
+		Richard Stallman 发起了 GNU 计划，
+		希望开发一套与 UNIX 兼容，
+		但允许用户自由使用、研究、
+		修改和分享的操作系统。
+		
+		\par\hspace*{2em}GNU 是
+		``GNU's Not Unix'' 的递归缩写，
+		意为“GNU 不是 UNIX”。
 	\end{block}
 	
 	\begin{block}{自由软件（Free Software）}
-		\hspace*{2em}GNU 计划不仅是一次操作系统开发实践，也推动了自由软件运动的发展。
+		\hspace*{2em}GNU 计划不仅希望开发新的操作系统，
+		更希望建立一种允许用户自由使用软件、
+		研究源代码、分享改进成果的协作方式。
 		
-		\par\hspace*{2em}自由软件所强调的“自由”，并不是软件必须免费，\alert{而是用户应当拥有控制自己所使用软件的自由。}
+		\par\hspace*{2em}\alert{这里的“自由”
+			并不是软件必须免费，
+			而是用户对自己使用的软件享有基本自由。}
 	\end{block}
 	
 \end{frame}
+
 
 \begin{frame}{自由软件与开源}
 	\begin{block}{自由软件（Free Software）}
@@ -330,6 +363,78 @@
 		
 		\par\hspace*{2em}\alert{自由不仅属于最初的用户，
 			也应该属于后续的用户。}
+	\end{block}
+	
+\end{frame}
+
+
+\begin{frame}[t]{开源的意义}
+	
+	\begin{block}{假如一位学长开发了一款校园软件……}
+		\hspace*{2em}一位学长开发了一款非常实用的
+		课表管理软件，但毕业后没有时间继续维护。
+		后来的同学发现了问题，还希望增加新的功能。难道这个软件就只能停止更新了吗？
+	\end{block}
+	\begin{block}{如果这是一款开源软件呢？}
+		\begin{itemize}
+			\item 知识共享：其他人可以阅读源代码，
+			学习软件的实现原理
+			
+			\item 协作创新：不同开发者可以共同修复问题、
+			增加功能，并分享改进成果
+			
+			\item 自主维护：即使原作者不再维护，
+			其他人仍有权继续开发这个项目
+		\end{itemize}
+	\end{block}
+	
+	\begin{block}{开源的核心价值}
+		\hspace*{2em}开源不仅是公开代码，
+		更是通过开放的许可与协作，
+		让更多人有机会参与软件的学习、
+		改进与长期发展。
+		
+		\par\hspace*{2em}\alert{让创新不止于一个人，
+			让技术能够被更多人共同推动。}
+	\end{block}
+	
+\end{frame}
+
+
+\begin{frame}[t]{开源的意义}
+	
+	\begin{block}{技术应该只属于少数人吗？}
+		\hspace*{2em}一个普通大学生，
+		可能没有昂贵的实验设备，
+		没有丰富的科研资源，
+		也没有机会进入顶尖科技企业。
+		
+		\par\hspace*{2em}但这是否意味着，
+		他就没有机会学习先进技术，
+		甚至参与技术创新呢？
+	\end{block}
+	
+	\begin{block}{开源正在改变什么？}
+		\begin{itemize}
+			\item 知识的平等：让更多人有机会
+			阅读和研究真实的软件源代码
+			
+			\item 机会的平等：让普通开发者也有机会
+			参与大型软件项目的开发与改进
+			
+			\item 权利的平等：让用户获得研究、
+			修改和分享软件的权利
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{开源的意义}
+		\hspace*{2em}开源无法消除所有的不平等，
+		但它能够降低技术的获取门槛，
+		打破部分知识壁垒，
+		让更多人有机会参与技术的发展。
+		
+		\par\hspace*{2em}\alert{技术进步不应只是少数人的事业，
+			更多人也应该有机会成为创造者。}
 	\end{block}
 	
 \end{frame}
