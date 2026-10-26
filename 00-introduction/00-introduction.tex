@@ -13,16 +13,16 @@
 \setCJKmainfont{KaiTi}
 \setCJKsansfont{KaiTi}
 \setCJKmonofont{KaiTi}
-
-% 封面信息
-\title{这就是开源}
+	\title{这就是开源}
 \subtitle{第一讲：从操作系统到开源}
 \author{潘宇琦\hspace*{1em}申鹏威}
-\date{2026年10月}
-
 \begin{document}
 
 \begin{frame}
+	\title{这就是开源}
+	\subtitle{第一讲：从操作系统到开源}
+	\author{潘宇琦\hspace*{1em}申鹏威}
+	\date{2026年10月}
 	\titlepage
 \end{frame}
 	
@@ -310,6 +310,221 @@
 	\end{block}
 	
 \end{frame}
+\begin{frame}{从自由软件到 Linux}
+	\begin{block}{GNU 已经做了很多事情}
+		\hspace*{2em}GNU 计划并不只是提出了自由软件的理念，它还开发了许多重要的软件工具。
+		\par\hspace*{2em}例如，编译程序可以用到 GCC，命令行交互可以用到 Bash，日常文件操作也有许多 GNU 工具支持。
+	\end{block}
+	\begin{block}{但还缺少一个关键部分}
+		\hspace*{2em}如果想真正构建一套完整的操作系统，仅有编译器、命令行工具和基础软件还不够。
+		\par\hspace*{2em}我们前面说过，操作系统要负责管理处理器、内存和设备，完成这些底层工作的核心部分，就是\alert{内核（Kernel）}。而当时，GNU 还没有一个成熟可用的内核。
+	\end{block}
+	\begin{block}{那么，问题来了}
+		\hspace*{2em}既然 GNU 已经准备好了大量系统工具，如果这时出现一个合适的内核，能不能把它们结合起来，组成一套真正实用的自由操作系统呢？
+		
+		\par\hspace*{2em}\alert{这时，Linux 出现了。}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Linux 的诞生}
+	\begin{block}{一个大学生的个人项目}
+		\hspace*{2em}20 世纪 90 年代初，芬兰赫尔辛基大学的学生 Linus Torvalds在学习和使用类 UNIX 系统的过程中，对操作系统的工作原理产生了浓厚的兴趣。
+		\par\hspace*{2em}于是，他决定动手为自己的计算机开发一个操作系统内核，这就是后来 Linux 的起点。
+	\end{block}
+	\begin{block}{一条改变历史的网络留言}
+		\hspace*{2em}1991 年，Linus 在互联网上介绍了自己的项目，并向其他开发者征求意见。
+		\par\hspace*{2em}他甚至在留言中表示，这只是一个业余项目，不会像 GNU 那样庞大和专业。
+	\end{block}
+	\begin{block}{谁能想到呢？}
+		\hspace*{2em}随着项目代码逐渐公开，越来越多的开发者开始关注它，提出建议并参与改进。
+		\par\hspace*{2em}一个大学生的个人项目，就这样迈出了走向全球协作的第一步。
+		\par\hspace*{2em}\alert{不过，当时的 Linux 还只是一个操作系统内核。}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Linux 究竟是什么？}
+
+	\begin{block}{内核究竟负责什么？}
+		\hspace*{2em}内核直接与计算机硬件打交道，负责管理和协调计算机的基本资源。
+		\begin{itemize}
+			\item 进程管理：安排不同程序的执行
+			\item 内存管理：分配和管理内存空间
+			\item 设备管理：协调程序对硬件设备的访问
+		\end{itemize}
+	\end{block}
+	\begin{block}{只有内核就足够了吗？}
+		\hspace*{2em}内核虽然能够管理计算机硬件，但要构建一套方便用户使用的操作系统，还需要命令行工具、系统库以及各种应用程序。
+		\par\hspace*{2em}那么，如果把 Linux 内核与这些系统工具结合起来，是不是就能构建一套完整的操作系统呢？
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{GNU 与 Linux 的相遇}
+	\begin{block}{两个项目，各有所长}
+		\hspace*{2em}GNU 计划已经开发出了编译器、Shell、基础命令等大量系统工具，但自己的操作系统内核尚未成熟。
+		\par\hspace*{2em}而 Linux 已经拥有了能够管理计算机硬件资源的内核，却还需要其他系统工具，才能构建一套方便用户使用的操作系统。
+	\end{block}
+	
+	\begin{block}{GNU/Linux 的诞生}
+		\hspace*{2em}开发者逐渐将 Linux 内核与 GNU 工具及其他系统组件结合起来，形成了一套实用的类 UNIX 操作系统。	
+		\begin{center}
+			GNU 系统工具
+			$+$
+			Linux 内核
+			$+$
+			其他组件
+			
+			$\Downarrow$
+			
+			\alert{GNU/Linux 操作系统}
+		\end{center}
+	\end{block}
+	
+	\begin{block}{但是，还有一个问题……}
+		\hspace*{2em}GNU 计划的目标是构建一套自由的操作系统。
+		\par\hspace*{2em}那么，Linux 从诞生开始，就允许用户自由地使用、研究、修改和分享它吗？
+	\end{block}
+\end{frame}
+
+\begin{frame}{Linux 成为自由软件}
+	\begin{block}{Linux 最初就是自由软件吗？}
+		\hspace*{2em}Linux 最初就公开了源代码，允许其他开发者阅读和分享。但它最初的许可证明确禁止收费分发，即使仅仅收取手续费也不可以。
+		\par\hspace*{2em}因此，早期 Linux 并不完全符合我们前面介绍的自由软件标准。
+	\end{block}	
+	\begin{block}{一项重要的决定：GNU GPL}
+		\hspace*{2em}1992 年，Linus Torvalds 决定将 Linux 内核改为使用 GNU GPL 许可证。
+		\par\hspace*{2em}从此，用户不仅能够研究、修改和分享 Linux，还可以在遵守许可证的前提下进行商业分发。
+	\end{block}
+	\begin{block}{自由带来了什么？}
+		\hspace*{2em}GPL 明确保障了后续用户使用、研究、修改和再分发软件的自由，也为开发者参与 Linux 的持续改进提供了许可基础。
+		\par\hspace*{2em}\alert{当越来越多的人有权参与改进，一个大学生的个人项目，又将如何发展呢？}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[t]{从个人项目到全球协作}
+	
+	\begin{block}{一个人能完成如此庞大的项目吗？}
+		\hspace*{2em}随着 Linux 不断发展，越来越多的开发者开始关注这个项目。有人发现了程序中的错误，有人希望增加新的功能，还有人希望让 Linux 运行在不同的计算机上。但是，这些来自世界各地的开发者，该如何共同维护同一份代码呢？
+	\end{block}
+	
+	\begin{block}{互联网让协作成为可能}
+		\hspace*{2em}借助互联网，开发者可以通过讨论组、电子邮件等方式交流想法，并将代码修改整理成补丁（Patch），提交给项目的维护者。
+		
+		\par\hspace*{2em}经过讨论、审查和测试，合适的修改就有机会被合并到 Linux 中，让更多用户受益。
+	\end{block}
+
+	\begin{block}{开源不只是公开代码}
+		\hspace*{2em}Linux的发展逐渐证明，一个大型软件项目不一定只能依靠某一家企业内部的开发团队。通过开放的许可、互联网以及有效的社区协作，来自不同地区的开发者也能够共同改进软件。\alert{一个人的项目，可以逐渐成为世界各地开发者共同参与的事业。}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[t]{Linux 逐渐形成自己的生态}
+	
+	\begin{block}{如何让更多人使用 Linux？}
+		\hspace*{2em}Linux 内核虽然已经能够管理计算机硬件，
+		但普通用户还需要各种系统工具、程序库和应用软件。
+		
+		\par\hspace*{2em}如果每个人都要自己寻找这些软件，
+		再逐个安装、配置，
+		使用 Linux 的门槛仍然很高。
+	\end{block}
+	
+	\vspace{0.3cm}
+	
+	\begin{block}{Linux 发行版（Linux Distribution）}
+		\hspace*{2em}于是，开发者开始将 Linux 内核、
+		GNU 工具以及其他必要的软件组织在一起，
+		提供更加完整、方便安装和使用的操作系统。
+		
+		\par\hspace*{2em}20 世纪 90 年代，
+		一批具有代表性的 Linux 发行版相继出现：
+		
+		\begin{itemize}
+			\item Slackware：1993 年发布，注重简洁与稳定
+			\item Debian：1993 年创立，强调自由软件与社区协作
+			\item Red Hat Linux：1994 年推出早期测试版本，
+			逐渐探索商业化应用
+		\end{itemize}
+	\end{block}
+	
+	\vspace{0.3cm}
+	
+	\begin{block}{从一个内核，到一个庞大的生态}
+		\hspace*{2em}不同开发者可以围绕同一个 Linux 内核，
+		根据各自的需求选择、整合和维护不同的软件，
+		构建出面向不同用户的操作系统。
+		
+		\par\hspace*{2em}\alert{Linux 的发展逐渐证明：
+			开放的软件不仅能够被共同改进，
+			还能够成为更多创新的基础。}
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}[t]{丰富多样的 Linux 发行版}
+	
+	\begin{block}{为什么会有这么多发行版？}
+		\hspace*{2em}虽然不同的 Linux 发行版
+		都以 Linux 内核为基础，
+		但它们可以采用不同的系统工具、
+		软件管理方式和更新策略，
+		满足不同用户的需求。
+	\end{block}
+	
+	\vspace{0.3cm}
+	
+	\begin{columns}[T,onlytextwidth]
+		
+		\begin{column}{0.48\textwidth}
+			
+			\begin{block}{Ubuntu}
+				基于 Debian，
+				注重易用性，
+				广泛应用于个人电脑、
+				软件开发与服务器。
+			\end{block}
+			
+			\vspace{0.2cm}
+			
+			\begin{block}{Debian}
+				由社区共同维护，
+				重视软件自由与系统稳定性，
+				也是许多其他发行版的基础。
+			\end{block}
+			
+		\end{column}
+		
+		\begin{column}{0.48\textwidth}
+			
+			\begin{block}{Fedora}
+				由开源社区推动，
+				积极采用新的软件技术，
+				提供桌面与服务器等版本。
+			\end{block}
+			
+			\vspace{0.2cm}
+			
+			\begin{block}{Arch Linux}
+				强调简洁与高度可定制，
+				采用滚动更新，
+				适合喜欢自主配置系统的用户。
+			\end{block}
+			
+		\end{column}
+		
+	\end{columns}
+	
+	\vspace{0.4cm}
+	
+	\begin{center}
+		\alert{同一个 Linux 内核生态，
+			可以发展出满足不同需求的操作系统。}
+	\end{center}
+	
+\end{frame}
 
 
 \begin{frame}{从自由软件到开源软件}
@@ -326,8 +541,6 @@
 		\end{itemize}
 	\end{block}
 \end{frame}
-
-
 
 \begin{frame}{开源的意义}
 	\begin{block}{假如一位学长开发了一款校园软件……}
@@ -357,6 +570,16 @@
 		\par\hspace*{2em}\alert{技术进步不应只是少数人的事业，更多人也应该有机会成为创造者。}
 	\end{block}
 	
+\end{frame}
+
+
+
+\begin{frame}
+	\title{谢谢大家}
+	\subtitle{第一讲：从操作系统到开源}
+	\author{潘宇琦\hspace*{1em}申鹏威}
+	\date{2026年10月}
+	\titlepage
 \end{frame}
 
 	
