@@ -297,18 +297,13 @@
 		\hspace*{2em}假设我们开发了一款自由软件，允许所有人使用、修改和分享。
 		\par\hspace*{2em}但如果有人修改了我们的软件，却不再向后来的软件使用者提供源代码，那么这些用户不就失去了研究和修改它的自由吗？
 	\end{block}
-	
-	\begin{block}{GNU GPL（GNU General Public License）}
-		\hspace*{2em}为了保障软件用户的自由，GNU 计划推出了 GNU GPL。
-		\par\hspace*{2em}GPL 允许用户使用、修改和分享软件，但如果将修改后的 GPL 软件分发给他人，就必须遵守相应的许可条件，使接收者继续享有这些自由，并按规定提供对应的源代码。
-	\end{block}
-	
 	\begin{block}{Copyleft（著佐权）}
-		\hspace*{2em}Copyleft 利用著作权与软件许可证，使自由软件在被修改和再分发时，仍然能够保持自由。
-		
-		\par\hspace*{2em}\alert{自由不仅属于最初的用户，也应该属于后续的用户。}
+		\hspace*{2em}Copyleft 利用著作权与软件许可证，使自由软件在被修改和再分发时，仍然能够保持自由。\alert{自由不仅属于最初的用户，也应该属于后续的用户。}
 	\end{block}
-	
+	\begin{block}{GNU GPL（GNU General Public License）}
+		\hspace*{2em}为了实现Copyleft，GNU 计划推出了 GNU GPL。
+		\par\hspace*{2em}GPL 允许用户使用、修改和分享软件，但如果将修改后的 GPL 软件分发给他人，就必须遵守相应的许可条件，使接收者继续享有这些自由，并按规定提供对应的源代码。
+	\end{block}	
 \end{frame}
 \begin{frame}{从GNU到Linux}
 	\begin{block}{GNU 已经做了很多事情}
@@ -318,11 +313,6 @@
 	\begin{block}{但还缺少一个关键部分}
 		\hspace*{2em}如果想真正构建一套完整的操作系统，仅有编译器、命令行工具和基础软件还不够。
 		\par\hspace*{2em}我们前面说过，操作系统要负责管理处理器、内存和设备，完成这些底层工作的核心部分，就是\alert{内核（Kernel）}。而当时，GNU 还没有一个成熟可用的内核。
-	\end{block}
-	\begin{block}{那么，问题来了}
-		\hspace*{2em}既然 GNU 已经准备好了大量系统工具，如果这时出现一个合适的内核，能不能把它们结合起来，组成一套真正实用的自由操作系统呢？
-		
-		\par\hspace*{2em}\alert{这时，Linux 出现了。}
 	\end{block}
 \end{frame}
 
@@ -335,34 +325,11 @@
 		\hspace*{2em}1991 年，Linus 在互联网上介绍了自己的项目，并向其他开发者征求意见。
 		\par\hspace*{2em}他甚至在留言中表示，这只是一个业余项目，不会像 GNU 那样庞大和专业。
 	\end{block}
-	\begin{block}{谁能想到呢？}
-		\hspace*{2em}随着项目代码逐渐公开，越来越多的开发者开始关注它，提出建议并参与改进。
-		\par\hspace*{2em}一个大学生的个人项目，就这样迈出了走向全球协作的第一步。
-		\par\hspace*{2em}\alert{不过，当时的 Linux 还只是一个操作系统内核。}
-	\end{block}
 \end{frame}
-
-
-\begin{frame}{Linux 究竟是什么？}
-
-	\begin{block}{内核究竟负责什么？}
-		\hspace*{2em}内核直接与计算机硬件打交道，负责管理和协调计算机的基本资源。
-		\begin{itemize}
-			\item 进程管理：安排不同程序的执行
-			\item 内存管理：分配和管理内存空间
-			\item 设备管理：协调程序对硬件设备的访问
-		\end{itemize}
-	\end{block}
-	\begin{block}{只有内核就足够了吗？}
-		\hspace*{2em}内核虽然能够管理计算机硬件，但要构建一套方便用户使用的操作系统，还需要命令行工具、系统库以及各种应用程序。
-		\par\hspace*{2em}那么，如果把 Linux 内核与这些系统工具结合起来，是不是就能构建一套完整的操作系统呢？
-	\end{block}
-\end{frame}
-
 
 \begin{frame}{GNU 与 Linux 的相遇}
 	\begin{block}{两个项目，各有所长}
-		\hspace*{2em}GNU 计划已经开发出了编译器、Shell、基础命令等大量系统工具，但自己的操作系统内核尚未成熟。
+		\hspace*{2em}GNU 计划已经开发出了编译器、Bash、基础命令等大量系统工具，但自己的操作系统内核尚未成熟。
 		\par\hspace*{2em}而 Linux 已经拥有了能够管理计算机硬件资源的内核，却还需要其他系统工具，才能构建一套方便用户使用的操作系统。
 	\end{block}
 	
@@ -380,11 +347,7 @@
 			\alert{GNU/Linux 操作系统}
 		\end{center}
 	\end{block}
-	
-	\begin{block}{但是，还有一个问题……}
-		\hspace*{2em}GNU 计划的目标是构建一套自由的操作系统。
-		\par\hspace*{2em}那么，Linux 从诞生开始，就允许用户自由地使用、研究、修改和分享它吗？
-	\end{block}
+
 \end{frame}
 
 \begin{frame}{Linux 成为自由软件}
@@ -473,9 +436,6 @@
 		软件管理方式和更新策略，
 		满足不同用户的需求。
 	\end{block}
-	
-	\vspace{0.3cm}
-	
 	\begin{columns}[T,onlytextwidth]
 		
 		\begin{column}{0.48\textwidth}
@@ -486,8 +446,6 @@
 				广泛应用于个人电脑、
 				软件开发与服务器。
 			\end{block}
-			
-			\vspace{0.2cm}
 			
 			\begin{block}{Debian}
 				由社区共同维护，
@@ -504,9 +462,6 @@
 				积极采用新的软件技术，
 				提供桌面与服务器等版本。
 			\end{block}
-			
-			\vspace{0.2cm}
-			
 			\begin{block}{Arch Linux}
 				强调简洁与高度可定制，
 				采用滚动更新，
@@ -516,9 +471,6 @@
 		\end{column}
 		
 	\end{columns}
-	
-	\vspace{0.4cm}
-	
 	\begin{center}
 		\alert{同一个 Linux 内核生态，
 			可以发展出满足不同需求的操作系统。}
