@@ -3,16 +3,16 @@
 
 ## 00-introduction：从操作系统到开源
 
-《这就是开源》的课程导论。从计算机硬件与日常使用场景出发，认识操作系统的作用，沿着 Unix、GNU 与 Linux 的发展脉络，了解自由软件与开源运动，建立学习后续工具与协作方法所需的背景知识。
+《这就是开源》的第一讲。从日常使用场景出发，认识操作系统的作用，沿着 Unix、GNU 与 Linux 的发展脉络，了解自由软件与开源运动，建立学习后续工具与协作方法所需的背景知识。
 
-计划涵盖：
+涵盖了：
 
 - **为什么需要操作系统**：认识处理器、内存与存储设备，理解操作系统如何协调程序与硬件资源。
 - **操作系统的发展**：了解操作系统的发展历程与主要分类，以及 Unix 的诞生与影响。
-- **GNU 与 Linux**：区分 GNU 项目、Linux 内核与 Linux 发行版，了解它们之间的联系。
+- **GNU 与 Linux**：从GNU计划到Linux 内核，再到Linux 发行版，了解它们之间的联系。
 - **从自由软件到开源**：初步认识自由软件与开源软件的理念，以及社区协作的价值。
 
-课程资料（编写中）：[课件 PDF](00-introduction/00-introduction.pdf) · [LaTeX 源码](00-introduction/00-introduction.tex)
+课程资料：[课件 PDF](00-introduction/00-introduction.pdf) · [LaTeX 源码](00-introduction/00-introduction.tex)
 
 ## 01-GitHub：认识开源协作平台
 
