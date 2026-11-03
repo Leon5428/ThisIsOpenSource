@@ -54,7 +54,7 @@
 \begin{block}{Git诞生}
 	\begin{itemize}
 		\item 2002 年，Linux 内核开发团队开始使用一款名为 BitKeeper 的商业分布式版本控制系统。当时该软件允许 Linux 社区免费使用。
-		\item 2005 年，BitKeeper 公司与 Linux 内核开发社区发生矛盾，Linux 社区失去了免费使用 BitKeeper 的权利。
+		\item 2005 年，BitMover 公司与 Linux 内核开发社区发生矛盾，Linux 社区失去了免费使用 BitKeeper 的权利。
 		\item Linus Torvalds 决定自己开发一套版本控制系统，以满足 Linux 内核的大规模协作需求。
 		\item 2005 年 4 月 7 日，Git 的第一个提交诞生。此后，Git 逐渐发展成为今天广泛使用的版本控制系统。
 	\end{itemize}
@@ -91,20 +91,30 @@
 	\hspace*{2em}我们实际看到和编辑的项目文件。对文件进行修改、创建和删除，都是在这里完成的。
 \end{block}
 	\centering
-\includegraphics[width=0.507\textwidth,keepaspectratio]{images/1.png}
+\includegraphics[width=0.707\textwidth,keepaspectratio]{images/1.png}
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
 \begin{block}{暂存区}
-	\hspace*{2em}我们使用git add 命令把修改过或者新创建或者删除过的文件提交到暂存区。暂存区不像工作区一样直接可见，其具体信息会被保存在.git文件夹中。
+	\hspace*{2em}我们使用 git add 命令，将指定文件的新增、修改或删除等变化加入暂存区。暂存区并不是一个需要我们手动管理的普通文件夹，其状态信息主要记录在 .git/index 文件中。
 \end{block}
 \centering
 \includegraphics[width=0.507\textwidth,keepaspectratio]{images/3.png}	
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
-\begin{block}{版本区}
-	内容...
+\begin{block}{版本库}
+	\hspace*{2em}当我们执行 git commit 命令时，Git 会根据暂存区中的内容创建一次新的提交（Commit），记录项目在该时刻的状态，并将相应的版本信息保存在 .git 目录中。
+	
+	\hspace*{2em}每一次提交都有一个唯一的标识符，我们可以使用 git log 命令查看过去的提交记录。
 \end{block}
+\centering
+\includegraphics[width=0.407\textwidth,keepaspectratio]{images/4.png}
+\end{frame}
+\begin{frame}{Git 的基本工作原理}
+	\centering
+	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/4.png}
+	
+	当PYQ看到这一页PPT时就该开始现场演示了。
 \end{frame}
 \end{document}
