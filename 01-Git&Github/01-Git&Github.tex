@@ -80,6 +80,107 @@
 	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-2.png}
 \end{frame}
 
+\begin{frame}{如何安装Git}
+\centering
+\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-3.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-4.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/1-5-1.png}
+	
+	这张图片会和现场演示稍有不同，以现场演示为准。
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-6.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/1-7.png}
+	
+	这张图片会和现场演示稍有不同，以现场演示为准。
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-8.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-9.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-10.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-11.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-12.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-13.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-14.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-15.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/1-16.png}
+\end{frame}
+
+\begin{frame}{如何安装Git}
+	\centering
+	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/1-17.png}
+	
+	这张图片会和现场演示稍有不同，以现场演示为准。
+\end{frame}
+
+\begin{frame}{Git安装成功}
+	\begin{block}{安装成功}
+		使用git --version命令来判断是否安装成功
+	\end{block}
+	\centering
+	\includegraphics[width=0.35\textwidth,keepaspectratio]{images/2-1.png}
+\end{frame}
+
+\begin{frame}{Git配置}
+	\begin{block}{配置用户名和邮箱}
+		使用如下命令来进行配置
+		\begin{itemize}
+			\item git config --global user.name "你的用户名"
+			\item git config --global user.email "你的邮箱"
+		\end{itemize}
+	\end{block}
+	\centering
+	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/2-2.png}
+\end{frame}
+
 \begin{frame}{Git 的基本工作原理}
 \begin{block}{仓库}
 	\hspace*{2em}当我们在一个项目文件夹中执行 `git init` 命令时，Git 会在该文件夹下创建一个名为 `.git` 的隐藏目录，用于保存版本控制所需的信息。此时，该文件夹就成为了一个 Git 仓库。
@@ -87,7 +188,7 @@
 	\hspace*{2em}需要注意的是，Git 并不要求初始化的文件夹必须为空，原有文件也不会受到影响。
 \end{block}
 	\centering
-	\includegraphics[width=0.507\textwidth,keepaspectratio]{images/1.png}
+	\includegraphics[width=0.507\textwidth,keepaspectratio]{images/3-1.png}
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
@@ -95,7 +196,7 @@
 		\hspace*{2em}这个文件夹在被初始化为仓库之后，就会增加一个名为.git的隐藏文件夹，其中会含有版本控制的重要信息。
 	\end{block}
 	\centering
-	\includegraphics[width=0.507\textwidth,keepaspectratio]{images/2.png}
+	\includegraphics[width=0.507\textwidth,keepaspectratio]{images/3-2.png}
 \end{frame}	
 
 \begin{frame}{Git 的基本工作原理}
@@ -103,7 +204,7 @@
 	\hspace*{2em}我们实际看到和编辑的项目文件。对文件进行修改、创建和删除，都是在这里完成的。
 \end{block}
 	\centering
-\includegraphics[width=0.707\textwidth,keepaspectratio]{images/1.png}
+\includegraphics[width=0.707\textwidth,keepaspectratio]{images/3-1.png}
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
@@ -111,7 +212,7 @@
 	\hspace*{2em}我们使用 git add 命令，将指定文件的新增、修改或删除等变化加入暂存区。暂存区并不是一个需要我们手动管理的普通文件夹，其状态信息主要记录在 .git/index 文件中。
 \end{block}
 \centering
-\includegraphics[width=0.507\textwidth,keepaspectratio]{images/3.png}	
+\includegraphics[width=0.507\textwidth,keepaspectratio]{images/3-3.png}	
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
@@ -121,11 +222,11 @@
 	\hspace*{2em}每一次提交都有一个唯一的标识符，我们可以使用 git log 命令查看过去的提交记录。
 \end{block}
 \centering
-\includegraphics[width=0.407\textwidth,keepaspectratio]{images/4.png}
+\includegraphics[width=0.407\textwidth,keepaspectratio]{images/3-4.png}
 \end{frame}
 \begin{frame}{Git 的基本工作原理}
 	\centering
-	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/4.png}
+	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/3-4.png}
 	
 	当PYQ看到这一页PPT时就该开始现场演示了。
 \end{frame}
