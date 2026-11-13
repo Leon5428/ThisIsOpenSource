@@ -9,18 +9,25 @@
 % PPT 主题
 \usetheme{Madrid}
 
-% 字体设置
-\setCJKmainfont{KaiTi}
-\setCJKsansfont{KaiTi}
-\setCJKmonofont{KaiTi}
+% 字体设置：全篇统一使用楷体。Windows 下为 KaiTi，其它平台按可用字体依次回退
+\newcommand{\kaitifont}[1]{%
+	\setCJKmainfont{#1}\setCJKsansfont{#1}\setCJKmonofont{#1}%
+}
+\IfFontExistsTF{KaiTi}{\kaitifont{KaiTi}}{%
+	\IfFontExistsTF{STKaiti}{\kaitifont{STKaiti}}{%
+		\IfFontExistsTF{Kaiti SC}{\kaitifont{Kaiti SC}}{%
+			\IfFontExistsTF{FandolKai-Regular}{\kaitifont{FandolKai-Regular}}{}%
+		}%
+	}%
+}
 \title{这就是开源}
-\subtitle{第二讲：Git与Github}
+\subtitle{第二讲：Git 与 GitHub}
 \author{潘宇琦\hspace*{1em}申鹏威}
 \begin{document}
 
 \begin{frame}
 	\title{这就是开源}
-	\subtitle{第二讲：Git与Github}
+	\subtitle{第二讲：Git 与 GitHub}
 	\author{潘宇琦\hspace*{1em}申鹏威}
 	\date{2026年11月}
 	\titlepage
@@ -231,7 +238,29 @@
 	当PYQ看到这一页PPT时就该开始现场演示了。
 \end{frame}
 
-\begin{frame}{Git的基本操作}
+\begin{frame}{Git 的基本操作}
+	\begin{block}{常用的几条命令}
+		\begin{itemize}
+			\item git status：查看当前工作区与暂存区的状态
+			\item git add 文件名：把指定文件的变化加入暂存区
+			\item git commit -m “提交说明”：把暂存区的内容记录为一次提交
+			\item git log：查看过去的提交记录
+		\end{itemize}
+	\end{block}
 	
+	\begin{block}{一次完整的提交}
+		\centering
+		修改文件
+		$\longrightarrow$
+		git add
+		$\longrightarrow$
+		git commit
+		$\longrightarrow$
+		git log
+	\end{block}
+	
+	\begin{center}
+		\alert{暂存区决定了下一次提交包含哪些修改：先 add，再 commit。}
+	\end{center}
 \end{frame}
 \end{document}
