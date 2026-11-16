@@ -263,4 +263,145 @@
 		\alert{暂存区决定了下一次提交包含哪些修改：先 add，再 commit。}
 	\end{center}
 \end{frame}
+\begin{frame}[fragile]{git status：先看清楚现在处在哪一步}
+	\begin{block}{改完 notes.txt 之后，实际输出是这样的}
+		{\footnotesize
+		\begin{semiverbatim}
+\$ git status
+On branch main
+Changes not staged for commit:
+        modified:   notes.txt
+\end{semiverbatim}
+		}
+	\end{block}
+	
+	\begin{block}{三种最常见的说法}
+		\begin{itemize}
+			\item Untracked files：新文件，Git 还没开始跟踪
+			\item Changes not staged for commit：改了，但还没 add
+			\item Changes to be committed：已经 add，等着被 commit
+		\end{itemize}
+	\end{block}
+	
+	\begin{center}
+		\alert{看到哪一段，就知道下一步该 add，还是该 commit。}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{git diff：到底改了哪几行}
+	\begin{block}{git diff：还没 add 的改动}
+		{\footnotesize
+		\begin{semiverbatim}
+@@ -1,3 +1,3 @@
+ 第一行
+ 第二行（改过）
+-第三行
++第三行（也改过）
+\end{semiverbatim}
+		}
+	\end{block}
+	
+	\begin{block}{git diff -{}-staged：已经 add、即将提交的改动}
+		{\footnotesize
+		\begin{semiverbatim}
+@@ -1,3 +1,3 @@
+ 第一行
+-第二行
++第二行（改过）
+ 第三行
+\end{semiverbatim}
+		}
+	\end{block}
+	
+	\begin{center}
+		\alert{add 之前看 git diff，add 之后看 git diff -{}-staged。}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{git log：回看历史}
+	\begin{block}{git log -{}-oneline：一行一条}
+		{\footnotesize
+		\begin{semiverbatim}
+\$ git log --oneline
+451325c 修改第二行
+74a94b5 添加课程笔记
+\end{semiverbatim}
+		}
+	\end{block}
+	
+	\begin{block}{git log：完整信息}
+		{\footnotesize
+		\begin{semiverbatim}
+commit 451325c18059e0d7d088d56e369d7c2c8c677450
+Author: 潘宇琦 <panyuqi@example.com>
+Date:   Fri Nov 13 21:22:28 2026 +0800
+
+    修改第二行
+\end{semiverbatim}
+		}
+	\end{block}
+	
+	\begin{center}
+		\alert{每个提交都有一个唯一的哈希，后面讲远程和分支都要用到它。}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{.gitignore：不该进仓库的东西}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.48\textwidth}
+			\begin{block}{通常要忽略什么}
+				\begin{itemize}
+					\item 编译中间文件
+					\item 编辑器与系统临时文件
+					\item 依赖目录与构建产物
+					\item 密钥、令牌、密码文件
+				\end{itemize}
+			\end{block}
+		\end{column}
+		
+		\begin{column}{0.48\textwidth}
+			\begin{block}{本仓库的 .gitignore（截取）}
+				{\footnotesize
+				\begin{semiverbatim}
+*.aux
+*.log
+*.toc
+*.synctex.gz
+\end{semiverbatim}
+				}
+			\end{block}
+		\end{column}
+	\end{columns}
+	
+	\begin{block}{一个容易踩的坑}
+		\hspace*{2em}文件一旦被提交过，之后再写进 .gitignore 并不会把它移出仓库，还得单独删掉再提交。
+	\end{block}
+	
+	\begin{center}
+		\alert{把不该提交的东西挡在仓库外面，比提交之后再删省事得多。}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{改错了怎么退回去}
+	\begin{block}{两条最常用的撤回命令}
+		{\footnotesize
+		\begin{semiverbatim}
+\$ git restore notes.txt
+\$ git restore --staged notes.txt
+\end{semiverbatim}
+		}
+	\end{block}
+	
+	\begin{block}{它们分别做什么}
+		\begin{itemize}
+			\item git restore 文件名：丢弃工作区里还没 add 的修改
+			\item git restore -{}-staged 文件名：把文件移出暂存区，改动本身还在
+			\item 这两条都只作用于尚未提交的内容，已经提交的要另外处理
+		\end{itemize}
+	\end{block}
+	
+	\begin{center}
+		\alert{别一慌就敲 git reset -{}-hard：它会把还没提交的修改一起带走。}
+	\end{center}
+\end{frame}
 \end{document}

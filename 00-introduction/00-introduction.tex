@@ -9,10 +9,17 @@
 % PPT 主题
 \usetheme{Madrid}
 
-% 字体设置
-\setCJKmainfont{KaiTi}
-\setCJKsansfont{KaiTi}
-\setCJKmonofont{KaiTi}
+% 字体设置：全篇统一使用楷体。Windows 下为 KaiTi，其它平台按可用字体依次回退
+\newcommand{\kaitifont}[1]{%
+	\setCJKmainfont{#1}\setCJKsansfont{#1}\setCJKmonofont{#1}%
+}
+\IfFontExistsTF{KaiTi}{\kaitifont{KaiTi}}{%
+	\IfFontExistsTF{STKaiti}{\kaitifont{STKaiti}}{%
+		\IfFontExistsTF{Kaiti SC}{\kaitifont{Kaiti SC}}{%
+			\IfFontExistsTF{FandolKai-Regular}{\kaitifont{FandolKai-Regular}}{}%
+		}%
+	}%
+}
 	\title{这就是开源}
 \subtitle{第一讲：从操作系统到开源}
 \author{潘宇琦\hspace*{1em}申鹏威}
