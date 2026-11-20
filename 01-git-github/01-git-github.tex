@@ -219,7 +219,7 @@
 	\hspace*{2em}我们使用 git add 命令，将指定文件的新增、修改或删除等变化加入暂存区。暂存区并不是一个需要我们手动管理的普通文件夹，其状态信息主要记录在 .git/index 文件中。
 \end{block}
 \centering
-\includegraphics[width=0.507\textwidth,keepaspectratio]{images/3-3.png}	
+\includegraphics[width=0.707\textwidth,keepaspectratio]{images/3-3.png}	
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
@@ -263,30 +263,30 @@
 		\alert{暂存区决定了下一次提交包含哪些修改：先 add，再 commit。}
 	\end{center}
 \end{frame}
-\begin{frame}[fragile]{git status：先看清楚现在处在哪一步}
-	\begin{block}{改完 notes.txt 之后，实际输出是这样的}
-		{\footnotesize
-		\begin{semiverbatim}
-\$ git status
-On branch main
-Changes not staged for commit:
-        modified:   notes.txt
-\end{semiverbatim}
-		}
-	\end{block}
-	
-	\begin{block}{三种最常见的说法}
-		\begin{itemize}
-			\item Untracked files：新文件，Git 还没开始跟踪
-			\item Changes not staged for commit：改了，但还没 add
-			\item Changes to be committed：已经 add，等着被 commit
-		\end{itemize}
-	\end{block}
-	
-	\begin{center}
-		\alert{看到哪一段，就知道下一步该 add，还是该 commit。}
-	\end{center}
+\begin{frame}{git status命令}
+\begin{block}{git status}
+	该命令用于查看当前工作区与暂存区的状态，比如当你在工作区新增了一个文件file2.txt时，你会发现此时显示Untracked files，表示这是一个新文件，也就是说git还没开始跟踪这个文件
+\end{block}
+\centering
+\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-1.png}
 \end{frame}
+
+\begin{frame}{git status命令}
+	\begin{block}{git status}
+		若你在工作区对原先就存在并且提交过的file1.txt进行了一些修改，你会发现此时显示Changes not staged for commit，表示这个修改还没有提交到暂存区
+	\end{block}
+	\centering
+	\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-2.png}
+\end{frame}
+
+\begin{frame}{git status命令}
+	\begin{block}{git status}
+		若你对刚才的两个文件使用git add，你会发现此时显示Changes to be committed，表示这两个修改等待被提交，也就是git commit。
+	\end{block}
+	\centering
+	\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-3.png}
+\end{frame}
+
 
 \begin{frame}[fragile]{git diff：到底改了哪几行}
 	\begin{block}{git diff：还没 add 的改动}
