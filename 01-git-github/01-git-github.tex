@@ -498,23 +498,6 @@ git push                   # 之后直接这样
 
 \end{frame}
 
-\begin{frame}[fragile]{把远程的改动拉下来}
-\begin{block}{git pull}
-别人推了新提交，我们本地还是旧的，用 pull 把它们取回来并合并到当前分支。
-\vspace{-0.8em}
-\begin{semiverbatim}
-git pull
-\end{semiverbatim}
-\end{block}
-\begin{block}{git fetch}
-\hspace*{2em}它把远程的新提交下载到本地，但是只更新本地保存的对于远程仓库的快照，我们自己的分支和工作区都不会改变。
-\begin{itemize}
-		\item 想合：再执行 git merge origin/main
-		\item 不想合：什么都不用做，和没下载过一样
-	\end{itemize}
-\end{block}
-\end{frame}
-
 \begin{frame}[fragile]{远程仓库也有分支}
 	\begin{block}{本地看到的只是副本}
 		\hspace*{2em}远程仓库里除了 main，还可能有别的分支。clone 只把默认分支检出成工作区，但每一个远程分支都在本地留了一个只读的副本，名字前面带 origin/。
@@ -528,63 +511,111 @@ git branch -a      # 本地和远程的一起列出
 	\end{block}
 \end{frame}
 
-\begin{frame}[fragile]{先建分支，再推上去}
-\begin{block}{本地得先有这条分支}
+\begin{frame}[fragile]{本地分支和远程分支怎么对上}
+\begin{block}{情况一：本地有，远程没有}
+我们在本地建立完一个xxx分支之后，远程最开始是不知道的，所以我们需要在第一次推送的时候把远程分支给建立出来。
 \begin{semiverbatim}
-git switch -c feature      # 从当前提交新建 feature 并切过去
+git push -u origin feature    # 推到origin，并在远程建出同名的xxx分支
 \end{semiverbatim}
+加了-u会绑定远程的这个xxx分支，以后再有修改在提交之后直接 git push 就行；如果不加，以后再敲 git push 会报 fatal: no upstream branch。
 \end{block}
-\begin{block}{git commit之后要推送到远程}
+\begin{block}{情况二：clone时远程有，本地没有}
+此时本地只有 origin/xxx 这个分支的快照，只需要切一下就会建出对应的本地分支。
 \begin{semiverbatim}
-git push origin feature       # 推到 origin 的同名分支，但不绑定
-git push -u origin feature    # 同上，但是绑定 origin/feature
-\end{semiverbatim}
-加了-u，Git会记住这条分支的upstream，之后直接git push就会默认推送到远程的这个分支；如果没加，只敲git push就会报错。
-\end{block}
-\begin{block}{没加 -u 之后再直接 git push}
-\begin{semiverbatim}
-fatal: The current branch feature has no upstream branch.
+git switch feature            # 自动建本地 feature，跟踪 origin/feature
 \end{semiverbatim}
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{拿到本地：两条命令不是一回事}
-\begin{block}{git switch：在本地建分支并切过去}
+\begin{frame}[fragile]{本地分支\&远程分支}
+\begin{block}{情况三：clone时远程没有xxx分支，克隆后在远程建立了xxx分支}
+\hspace*{2em}此时我们先需要git fetch，该命令把远程各个分支的新提交下载到本地的 origin/*，并且只更新这些副本，不改动工作区，也不会切换分支。完成git fetch之后再进行git switch。
 \begin{semiverbatim}
-git switch feature
+git switch xxx
 \end{semiverbatim}
-\hspace*{2em}它用的是本地已经存在的 origin/feature，不会再去远程拿新东西。
+它用的是本地已经存在的 origin/xxx，不会再去远程拿新东西。
 \end{block}
-\begin{block}{git fetch：去远程拿新东西}
-\begin{semiverbatim}
-git fetch
-\end{semiverbatim}
-\hspace*{2em}它把远程各个分支的新提交下载到本地的 origin/*，只更新这些副本，不动工作区，也不切换分支。
-\end{block}
-\begin{center}
-\alert{switch 只负责切换，更新是 fetch 和 pull 的事。}
-\end{center}
 \end{frame}
 
+\begin{frame}{个人使用 $\Rightarrow$ 团队合作}
+	\begin{block}{如何团队合作}
+		\begin{itemize}
+			\item 建一个仓库，把组员加成协作者
+			\item 可以一人一条分支，也可以一种功能一条分支
+			\item 在分支上写、提交，把这条分支推上去
+			\item 提 Pull Request，请别人看
+			\item 通过之后合并进 main
+		\end{itemize}
+	\end{block}
+	\begin{block}{当我们开始工作时}
+		因为clone下来时工作区默认是对应主分支的，所以我们需要先切换到我们负责的分支，再进行后续的工作。
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{把远程的改动拉下来}
+\begin{block}{git pull}
+别人推了新提交，我们本地还是旧的，用 pull 把它们取回来并合并到当前分支。
+\vspace{-0.8em}
+\begin{semiverbatim}
+git pull                           #之前执行过git push -u origin xxx
+git pull origin feature            #之前从没有执行过git push -u origin xxx
+git branch --set-upstream-to=origin/feature
+\end{semiverbatim}
+\end{block}
+	\begin{block}{git fetch}
+		\hspace*{2em}它把远程的新提交下载到本地，但是只更新本地保存的对于远程仓库的快照，我们自己的分支和工作区都不会改变。
+		\begin{itemize}
+			\item 想合：再执行 git merge origin/main
+			\item 不想合：什么都不用做，和没下载过一样
+		\end{itemize}
+	\end{block}
+\end{frame}
 
 \begin{frame}{推送被拒绝怎么办}
 	\begin{block}{常见情况}
 		\hspace*{2em}别人先推了提交，你的本地落后了，Git 会拒绝这次 push，提示 non-fast-forward。
 	\end{block}
-	\begin{block}{处理办法}
-		\begin{itemize}
-			\item 先 git pull，把远程的提交合并进来
-			\item 如果出现冲突，按上一页的办法解决
-			\item 再 git push
-		\end{itemize}
+\begin{block}{处理办法}
+	\begin{itemize}
+		\item 先 git pull，把远程的提交合并进来；绝大多数情况下它会自动合上
+		\item 只有两边改了同一个文件的同一处，才会停下来等手工解决
+		\item 冲突解决完，再 git push
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{用 Pull Request 合并分支}
+	\begin{block}{在网页上把 feature 合进 main}
+		\begin{enumerate}
+			\item 先把分支推上去：git push -u origin feature
+			\item 仓库首页会出现 Compare \& pull request，点它
+			\item 上面选 base 为 main，下面选 compare 为 feature
+			\item 填标题和说明，点 Create pull request
+			\item 别人看过之后，点 Merge pull request
+		\end{enumerate}
 	\end{block}
 	\begin{center}
-		\alert{不要用强推绕过它，那会把别人的提交冲掉。}
+		\alert{合并发生在 GitHub 上，我们本地的 main 还要 pull 一次才更新。}
 	\end{center}
 \end{frame}
 
+\begin{frame}{合并一个 PR 的三种方式}
+	\begin{block}{点 Merge 旁边的箭头才看得到}
+		\begin{itemize}
+			\item Create a merge commit：保留分支上的每一条提交，另加一个合并提交
+			\item Squash and merge：把分支上的提交压成一条
+			\item Rebase and merge：把提交逐条接到 main 后面，不产生合并提交
+		\end{itemize}
+	\end{block}
+	\begin{block}{合并之后}
+		\hspace*{2em}页面会提示 Delete branch，把已经合掉的分支删掉，仓库才不会越堆越乱。
+	\end{block}
+\end{frame}
+
 \begin{frame}{读懂一个仓库}
-	\begin{block}{先看这几个地方}
+	\begin{block}{学习他人仓库}
+		Github会有很多优质仓库，如果想知道它是干什么的、能不能用、怎么为这个仓库做贡献，可以先在网页端浏览下面这几个文件。
 		\begin{itemize}
 			\item README：这个项目是做什么的、怎么安装、怎么用
 			\item LICENSE：别人允许你拿它做什么
@@ -592,9 +623,6 @@ git fetch
 			\item 目录结构和最近的提交：项目大概怎么组织的
 		\end{itemize}
 	\end{block}
-	\begin{center}
-		\alert{先读 README，再决定要不要用；先读 LICENSE，再决定能不能用。}
-	\end{center}
 \end{frame}
 
 \begin{frame}{常见的几种许可证}
@@ -634,9 +662,23 @@ git fetch
 			\item clone：发生在你电脑上，把某个仓库下载下来
 		\end{itemize}
 	\end{block}
-	\begin{center}
-		\alert{通常是先 fork，再 clone 自己那一份。}
-	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{多个远程：upstream}
+	\begin{block}{fork 之后本地有两个远程}
+		\begin{itemize}
+			\item origin：你自己账号下的那一份
+			\item upstream：原来的仓库，别人的更新从这里来
+		\end{itemize}
+	\end{block}
+\begin{block}{把原仓库加进来}
+\begin{semiverbatim}
+git remote add upstream https://github.com/原作者/仓库.git
+git remote -v              # 看清两个远程各自的地址
+git fetch upstream         # 把原仓库的更新拿下来
+git merge upstream/main    # 再合进本地的 main
+\end{semiverbatim}
+\end{block}
 \end{frame}
 
 \begin{frame}{Pull Request：请对方收下你的改动}
