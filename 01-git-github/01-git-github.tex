@@ -353,6 +353,23 @@ build/           # 整个 build 目录及其中的内容
 	\end{block}
 \end{frame}
 
+\begin{frame}[fragile]{什么是分支}
+	\begin{block}{从某一次提交上另起一条线}
+\begin{semiverbatim}
+A --- B --- C            main
+A --- B --- C --- D      feature
+\end{semiverbatim}
+		\hspace*{2em}在 C 这个提交上建一条分支 feature，之后提交的 D 只加在 feature 上，main 仍然停在 C。
+	\end{block}
+	\begin{block}{切到哪条分支，看到的就是哪条线的样子}
+		\begin{itemize}
+			\item 切到 feature：文件是 A、B、C、D 一路改下来的结果
+			\item 切回 main：文件又变回 C 的样子，D 那次提交不在
+			\item 两条线上的提交互不干扰
+		\end{itemize}
+	\end{block}
+\end{frame}
+
 \begin{frame}{为什么需要分支}
 	\begin{block}{一个常见的情况}
 		\hspace*{2em}主干上的代码是能跑的，现在要加一个新功能。功能写到一半是残缺的，既不能提交到主干，又不想把已经改好的部分丢掉。
