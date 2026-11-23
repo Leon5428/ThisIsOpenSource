@@ -359,7 +359,7 @@ build/           # 整个 build 目录及其中的内容
 A --- B --- C            main
 A --- B --- C --- D      feature
 \end{semiverbatim}
-		\hspace*{2em}在 C 这个提交上建一条分支 feature，之后提交的 D 只加在 feature 上，main 仍然停在 C。
+		在 C 这个提交上建一条分支 feature，之后提交的 D 只加在 feature 上，main 仍然停在 C。
 	\end{block}
 	\begin{block}{切到哪条分支，看到的就是哪条线的样子}
 		\begin{itemize}
@@ -407,7 +407,8 @@ git branch -d xxx         # 删除xxx分支
 
 \begin{frame}[fragile]{合并分支}
 	\begin{block}{git merge}
-		\hspace*{2em}先切换回要接收改动的那条分支，再把另一条分支合并进来。
+		先切换回要接收改动的那条分支，再把另一条分支合并进来。
+		\vspace{-0.8em}
 \begin{semiverbatim}
 git switch main
 git merge feature
@@ -423,7 +424,8 @@ git merge feature
 
 \begin{frame}[fragile]{解决冲突}
 	\begin{block}{什么时候会冲突}
-		\hspace*{2em}两条分支改了同一个文件的同一行，Git 不知道听谁的，就停下来让你决定。
+		两条分支改了同一个文件的同一行，Git 不知道听谁的，就停下来让你决定。
+		\vspace{-0.8em}
 \begin{semiverbatim}
 <<<<<<< HEAD
 主线上写的内容
