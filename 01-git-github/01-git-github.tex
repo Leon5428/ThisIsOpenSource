@@ -43,7 +43,7 @@
 
 \begin{frame}{Git的前世今生}
 \begin{block}{最初}
-	\hspace*{2em}最开始开发Linux的时候，大家交流代码提交补丁主要是依靠电子邮件，然后林纳斯把通过测试的补丁放到自己维护的代码树中，最终由林纳斯推出整个代码树的新版本，如果想查看新版本做了哪些改进，只能使用diff这一个工具，非常的不便。
+	\hspace*{2em}最开始开发Linux的时候，大家交流代码提交补丁主要是依靠电子邮件，然后林纳斯把通过测试的补丁放到自己维护的代码树中，最终由林纳斯推出整个代码树的新版本，如果想查看新版本做了哪些改进，只能靠 diff 这类工具，非常不便。
 \end{block}
 \begin{block}{版本控制系统(Version Control System，VCS)}
 	\hspace*{2em}一种用于记录文件或项目随时间发生的变化，并对这些变化进行管理的工具。
@@ -73,7 +73,7 @@
 	
 \begin{frame}{如何安装Git}
 \begin{block}{下载安装包}
-	我们先找到Git的官网，https://git-scm.com，找到Latest source release，点击Install for Windows.
+	我们先找到Git的官网，https://git-scm.com，找到Latest source release，点击 Install for Windows。
 \end{block}
 \centering
 \includegraphics[width=0.807\textwidth,keepaspectratio]{images/1-1.png}
@@ -99,7 +99,7 @@
 
 \begin{frame}{如何安装Git}
 	\centering
-	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/1-5-1.png}
+	\includegraphics[width=0.58\textwidth,keepaspectratio]{images/1-5-1.png}
 	
 	这张图片会和现场演示稍有不同，以现场演示为准。
 \end{frame}
@@ -111,7 +111,7 @@
 
 \begin{frame}{如何安装Git}
 	\centering
-	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/1-7.png}
+	\includegraphics[width=0.58\textwidth,keepaspectratio]{images/1-7.png}
 	
 	这张图片会和现场演示稍有不同，以现场演示为准。
 \end{frame}
@@ -163,14 +163,14 @@
 
 \begin{frame}{如何安装Git}
 	\centering
-	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/1-17.png}
+	\includegraphics[width=0.58\textwidth,keepaspectratio]{images/1-17.png}
 	
 	这张图片会和现场演示稍有不同，以现场演示为准。
 \end{frame}
 
 \begin{frame}{Git安装成功}
 	\begin{block}{安装成功}
-		使用git --version命令来判断是否安装成功
+		使用 git -{}-version 命令来判断是否安装成功
 	\end{block}
 	\centering
 	\includegraphics[width=0.35\textwidth,keepaspectratio]{images/2-1.png}
@@ -180,12 +180,12 @@
 	\begin{block}{配置用户名和邮箱}
 		使用如下命令来进行配置
 		\begin{itemize}
-			\item git config --global user.name "你的用户名"
-			\item git config --global user.email "你的邮箱"
+			\item git config -{}-global user.name “你的用户名”
+			\item git config -{}-global user.email “你的邮箱”
 		\end{itemize}
 	\end{block}
 	\centering
-	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/2-2.png}
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/2-2.png}
 \end{frame}
 
 \begin{frame}{Git 的基本工作原理}
@@ -211,7 +211,7 @@
 	\hspace*{2em}我们实际看到和编辑的项目文件。对文件进行修改、创建和删除，都是在这里完成的。
 \end{block}
 	\centering
-\includegraphics[width=0.707\textwidth,keepaspectratio]{images/3-1.png}
+\includegraphics[width=0.64\textwidth,keepaspectratio]{images/3-1.png}
 \end{frame}
 \begin{frame}{Git 的基本工作原理}
 \begin{block}{暂存区}
@@ -231,7 +231,7 @@
 \end{frame}
 \begin{frame}{Git 的基本工作原理}
 	\centering
-	\includegraphics[width=0.607\textwidth,keepaspectratio]{images/3-4.png}
+	\includegraphics[width=0.61\textwidth,keepaspectratio]{images/3-4.png}
 	
 	当PYQ看到这一页PPT时就该开始现场演示了。
 \end{frame}
@@ -240,7 +240,8 @@
 		\begin{itemize}
 			\item git status：查看当前工作区与暂存区的状态
 			\item git add 文件名：把指定文件的变化加入暂存区
-			\item git commit -m“提交说明”：把暂存区的内容记录为一次提交
+			\item git commit -m “提交说明”：把暂存区的内容记录为一次提交
+			\item git log：查看过去的提交记录
 		\end{itemize}
 	\end{block}
 	
@@ -258,7 +259,7 @@
 \end{frame}
 \begin{frame}{git status命令}
 	\begin{block}{git status}
-		若你在工作区对原先就存在并且提交过的file1.txt进行了一些修改，你会发现此时显示Changes not staged for commit，表示这个修改还没有提交到暂存区
+		若你在工作区对原先就存在并且提交过的file1.txt进行了一些修改，你会发现此时显示Changes not staged for commit，表示这个修改还没有加入暂存区
 	\end{block}
 	\centering
 	\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-2.png}
@@ -271,12 +272,64 @@
 	\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-3.png}
 \end{frame}
 
+\begin{frame}[fragile]{git log命令}
+	\begin{block}{查看提交历史}
+		\hspace*{2em}git log 把提交历史按时间倒序列出来，最新的一次在最上面，一次提交显示成一块。
+		{\footnotesize
+		\begin{semiverbatim}
+commit 121e7be060b55a9ed047d1c961323c81a635553f
+Author: 潘宇琦 <panyuqi@example.com>
+Date:   Wed Nov 25 00:10:18 2026 +0800
+
+    新增 file2.txt
+\end{semiverbatim}
+		}
+	\end{block}
+	\begin{block}{每一行是什么}
+		\begin{itemize}
+			\item commit 后面那串是这次提交的哈希，唯一标识
+			\item Author 是作者，Date 是提交时间
+			\item 空行下面那一句是提交说明，就是 git commit -m 写的内容
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{git log -{}-oneline}
+	\begin{block}{一行一条，看得更快}
+		{\footnotesize
+		\begin{semiverbatim}
+121e7be 新增 file2.txt
+cd8285d 给 file1.txt 加一行
+a4bb704 新增 file1.txt
+\end{semiverbatim}
+		}
+	\end{block}
+	\begin{block}{省掉了什么}
+		\begin{itemize}
+			\item 哈希只显示前 7 位，区分提交已经够用
+			\item 作者、时间、空行都不显示，一屏能看更多
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{git log 看起来卡住了？}
+	\begin{block}{那是因为进了分页器}
+		\hspace*{2em}提交一多，git log 不会一次全部打出来，而是进入分页显示，屏幕最下方会出现一个冒号。
+	\end{block}
+	\begin{block}{这时候不是卡死了}
+		\begin{itemize}
+			\item 按空格或者 PageDown 翻下一页
+			\item 按上下方向键一行一行看
+			\item 按 q 退出，回到命令行
+		\end{itemize}
+	\end{block}
+\end{frame}
 \begin{frame}[fragile]{修改上一次提交}
 	\begin{block}{git commit -{}-amend}
 		\hspace*{2em}刚提交完就发现漏了文件，或者提交说明写错了，可以用它把这次的改动直接补进上一次的提交，不会多出一条历史。
 	\end{block}
 \begin{block}{如果只是漏掉了文件}
-{
+{\footnotesize
 \begin{semiverbatim}
 git add notes.txt      # 先把漏掉的文件加入暂存区
 git commit --amend     # 再执行，替换上一次提交
@@ -284,9 +337,9 @@ git commit --amend     # 再执行，替换上一次提交
 }
 \end{block}
 \begin{block}{如果只是写错了说明}
-{
+{\footnotesize
 \begin{semiverbatim}
-git commit --amend -m"新的提交说明"  
+git commit --amend -m "新的提交说明"
 \end{semiverbatim}
 }
 \end{block}
@@ -300,8 +353,8 @@ git commit --amend -m"新的提交说明"
 \begin{block}{两条最常用的撤回命令}
 {
 \begin{semiverbatim}
- git restore notes.txt
- git restore --staged notes.txt
+git restore notes.txt
+git restore --staged notes.txt
 \end{semiverbatim}
 }
 \end{block}
@@ -356,8 +409,8 @@ build/           # 整个 build 目录及其中的内容
 \begin{frame}[fragile]{什么是分支}
 	\begin{block}{从某一次提交上另起一条线}
 \begin{semiverbatim}
-A --- B --- C            main
-A --- B --- C --- D      feature
+A --- B --- C          main
+A --- B --- C --- D    feature
 \end{semiverbatim}
 		在 C 这个提交上建一条分支 feature，之后提交的 D 只加在 feature 上，main 仍然停在 C。
 	\end{block}
@@ -416,7 +469,7 @@ git merge feature
 	\end{block}
 	\begin{block}{两种结果}
 		\begin{itemize}
-			\item 快进：主干没有新提交，直接往前挪一格
+			\item 快进：主干没有新提交，直接挪到 feature 的最新提交上
 			\item 合并提交：两条线都往前走过了，Git 生成一个新的提交把它们接起来
 		\end{itemize}
 	\end{block}
@@ -424,7 +477,7 @@ git merge feature
 
 \begin{frame}[fragile]{解决冲突}
 	\begin{block}{什么时候会冲突}
-		两条分支改了同一个文件的同一行，Git 不知道听谁的，就停下来让你决定。
+		两条分支改了同一个文件的同一处（相邻的几行也算），Git 不知道听谁的，就停下来让你决定。
 		\vspace{-0.8em}
 \begin{semiverbatim}
 <<<<<<< HEAD
@@ -476,7 +529,7 @@ git clone https://github.com/你的用户名/仓库名.git
 			\item git init：从零开始建一个空仓库
 			\item git clone：把远程已有的仓库连历史一起拿下来
 		\end{itemize}
-		clone 下来的仓库不用再执行 git init了，因为它已经是一个完整的仓库了。
+		clone 下来的仓库不用再执行 git init 了，因为它已经是一个完整的仓库了。
 	\end{block}
 \end{frame}
 
@@ -532,14 +585,14 @@ git branch -a      # 本地和远程的一起列出
 
 \begin{frame}[fragile]{本地分支和远程分支怎么对上}
 \begin{block}{情况一：本地有，远程没有}
-我们在本地建立完一个xxx分支之后，远程最开始是不知道的，所以我们需要在第一次推送的时候把远程分支给建立出来。
+我们在本地建立完一个 feature 分支之后，远程最开始是不知道的，所以需要在第一次推送的时候把远程分支建出来。
 \begin{semiverbatim}
-git push -u origin feature    # 推到origin，并在远程建出同名的xxx分支
+git push -u origin feature    # 推到 origin，并在远程建出同名的 feature 分支
 \end{semiverbatim}
-加了-u会绑定远程的这个xxx分支，以后再有修改在提交之后直接 git push 就行；如果不加，以后再敲 git push 会报 fatal: no upstream branch。
+加了 -u 会绑定远程的这个 feature 分支，以后再提交直接 git push 就行；不加的话，以后敲 git push 会报 fatal: no upstream branch。
 \end{block}
 \begin{block}{情况二：clone时远程有，本地没有}
-此时本地只有 origin/xxx 这个分支的快照，只需要切一下就会建出对应的本地分支。
+此时本地只有 origin/feature 这个分支的快照，只需要切一下就会建出对应的本地分支。
 \begin{semiverbatim}
 git switch feature            # 自动建本地 feature，跟踪 origin/feature
 \end{semiverbatim}
@@ -560,7 +613,7 @@ git switch xxx
 	\begin{block}{如何团队合作}
 		\begin{itemize}
 			\item 建一个仓库，把组员加成协作者
-			\item 可以一人一条分支，也可以一种功能一条分支
+			\item 按任务开分支：一个功能一条分支，也可以几个人共用一条
 			\item 在分支上写、提交，把这条分支推上去
 			\item 提 Pull Request，请别人看
 			\item 通过之后合并进 main
@@ -607,7 +660,7 @@ git branch --set-upstream-to=origin/feature
 \begin{frame}{用 Pull Request 合并分支}
 	\begin{block}{在网页上把 feature 合进 main}
 		\begin{enumerate}
-			\item 先把分支推上去：git push -u origin feature
+			\item 先把分支推上去：git push -u origin feature（新开的分支第一次推要加 -u）
 			\item 仓库首页会出现 Compare \& pull request，点它
 			\item 上面选 base 为 main，下面选 compare 为 feature
 			\item 填标题和说明，点 Create pull request
