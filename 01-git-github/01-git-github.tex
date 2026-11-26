@@ -625,7 +625,7 @@ git branch -a      # 本地和远程的一起列出
 	\end{block}
 \end{frame}
 
-\begin{frame}[fragile]{本地分支和远程分支怎么对上}
+\begin{frame}[fragile]{本地分支\&远程分支}
 \begin{block}{情况一：本地有，远程没有}
 我们在本地建立完一个 xxxx 分支之后，远程最开始是不知道的，所以需要在第一次推送的时候把远程分支建出来。
 \begin{semiverbatim}
@@ -645,9 +645,9 @@ git switch xxxx           # 自动建本地xxxx分支，跟踪 origin/xxxx
 \begin{block}{情况三：clone时远程没有xxx分支，克隆后在远程建立了xxx分支}
 \hspace*{2em}此时我们先需要git fetch，该命令把远程各个分支的新提交下载到本地的 origin/*，并且只更新这些副本，不改动工作区，也不会切换分支。完成git fetch之后再进行git switch。
 \begin{semiverbatim}
-git switch xxx
+git switch xxxx
 \end{semiverbatim}
-它用的是本地已经存在的 origin/xxx，不会再去远程拿新东西。
+它用的是本地已经存在的 origin/xxxx，不会再去远程拿新东西。
 \end{block}
 \end{frame}
 
@@ -666,15 +666,14 @@ git switch xxx
 	\end{block}
 \end{frame}
 
-
 \begin{frame}[fragile]{把远程的改动拉下来}
 \begin{block}{git pull}
 别人推了新提交，我们本地还是旧的，用 pull 把它们取回来并合并到当前分支。
 \vspace{-0.8em}
 \begin{semiverbatim}
-git pull                           #之前执行过git push -u origin xxx
-git pull origin feature            #之前从没有执行过git push -u origin xxx
-git branch --set-upstream-to=origin/feature
+git pull                           #之前执行过git push -u origin xxxx
+git pull origin xxxx            #之前从没有执行过git push -u origin xxxx
+git branch --set-upstream-to=origin/xxxx
 \end{semiverbatim}
 \end{block}
 	\begin{block}{git fetch}
@@ -700,7 +699,7 @@ git branch --set-upstream-to=origin/feature
 \end{frame}
 
 \begin{frame}{用 Pull Request 合并分支}
-	\begin{block}{在网页上把 feature 合进 main}
+	\begin{block}{在网页上把 xxxx 分支合并到main分支 }
 		\begin{enumerate}
 			\item 先把分支推上去：git push -u origin feature（新开的分支第一次推要加 -u）
 			\item 仓库首页会出现 Compare \& pull request，点它
@@ -729,7 +728,7 @@ git branch --set-upstream-to=origin/feature
 
 \begin{frame}{读懂一个仓库}
 	\begin{block}{学习他人仓库}
-		Github会有很多优质仓库，如果想知道它是干什么的、能不能用、怎么为这个仓库做贡献，可以先在网页端浏览下面这几个文件。
+		\hspace*{2em}Github会有很多优质仓库，如果想知道它是干什么的、能不能用、怎么为这个仓库做贡献，可以先在网页端浏览下面这几个文件。
 		\begin{itemize}
 			\item README：这个项目是做什么的、怎么安装、怎么用
 			\item LICENSE：别人允许你拿它做什么
@@ -766,7 +765,7 @@ git branch --set-upstream-to=origin/feature
 	\end{block}
 \end{frame}
 
-\begin{frame}{Fork：没有权限也能改}
+\begin{frame}{Fork}
 	\begin{block}{为什么需要 fork}
 		\hspace*{2em}别人的仓库你没有写权限，不能直接 push。fork 会把这个仓库复制一份到你的账号下，那一份你可以随便改。
 	\end{block}
@@ -832,8 +831,6 @@ git merge upstream/main    # 再合进本地的 main
 		$\longrightarrow$
 		新建分支
 		
-		\vspace{0.4cm}
-		
 		提交
 		$\longrightarrow$
 		push
@@ -844,6 +841,14 @@ git merge upstream/main    # 再合进本地的 main
 		$\longrightarrow$
 		合并
 	\end{block}
+\end{frame}
+
+\begin{frame}
+	\title{谢谢大家}
+	\subtitle{第二讲：Git 与 GitHub}
+	\author{潘宇琦\hspace*{1em}申鹏威}
+	\date{2026年11月}
+	\titlepage
 \end{frame}
 
 \end{document}
