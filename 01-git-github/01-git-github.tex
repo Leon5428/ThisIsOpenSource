@@ -37,13 +37,13 @@
 \begin{block}{如何协作？}
 	\hspace*{2em}在上一讲中，我们认识了操作系统的发展历史，什么是开源以及开源的意义。但现在仍然面临一个问题：当我们真正开始接触开源时，如何高效地参与开源项目、管理代码，以及与其他开发者协作？
 	
-	\hspace*{2em}我在上一讲提到开源之所以发展得如此迅速是因为计算机的普及和互联网的发展，但是仅仅依靠这两点还是不够的。我们需要一个强力的工具，这个工具就是Git。
+	\hspace*{2em}我们在上一讲讲到到开源之所以发展得如此迅速是因为计算机的普及和互联网的发展，但是仅仅依靠这两点还是不够的。我们需要一个强力的工具，这个工具就是Git。
 \end{block}
 \end{frame}	
 
 \begin{frame}{Git的前世今生}
 \begin{block}{最初}
-	\hspace*{2em}最开始开发Linux的时候，大家交流代码提交补丁主要是依靠电子邮件，然后林纳斯把通过测试的补丁放到自己维护的代码树中，最终由林纳斯推出整个代码树的新版本，如果想查看新版本做了哪些改进，只能靠 diff 这类工具，非常不便。
+	\hspace*{2em}最开始开发Linux的时候，大家交流代码提交补丁主要是依靠电子邮件，然后Linus把通过测试的补丁放到自己维护的代码树中，最终由Linus推出整个代码树的新版本，如果想查看新版本做了哪些改进，只能靠 diff 这类工具，非常不便。
 \end{block}
 \begin{block}{版本控制系统(Version Control System，VCS)}
 	\hspace*{2em}一种用于记录文件或项目随时间发生的变化，并对这些变化进行管理的工具。
@@ -252,21 +252,21 @@
 \end{frame}
 \begin{frame}{git status命令}
 \begin{block}{git status命令}
-	该命令用于查看当前工作区与暂存区的状态，比如当你在工作区新增了一个文件file2.txt时，你会发现此时显示Untracked files，表示这是一个新文件，也就是说git还没开始跟踪这个文件
+	\hspace*{2em}该命令用于查看当前工作区与暂存区的状态，比如当你在工作区新增了一个文件file2.txt时，此时执行该命令你会发现Untracked files字样，表示这是一个新文件，也就是说git还没开始跟踪这个文件。
 \end{block}
 \centering
 \includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-1.png}
 \end{frame}
 \begin{frame}{git status命令}
 	\begin{block}{git status}
-		若你在工作区对原先就存在并且提交过的file1.txt进行了一些修改，你会发现此时显示Changes not staged for commit，表示这个修改还没有加入暂存区
+		\hspace*{2em}若你在工作区对原先就存在并且提交过的file1.txt进行了一些修改，此时执行该命令你会发现Changes not staged for commit字样，表示这个修改还没有加入暂存区
 	\end{block}
 	\centering
 	\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-2.png}
 \end{frame}
 \begin{frame}{git status命令}
 	\begin{block}{git status}
-		若你对刚才的两个文件使用git add，你会发现此时显示Changes to be committed，表示这两个修改等待被提交，也就是git commit。
+		\hspace*{2em}若你对刚才的两个文件使用过git add之后再使用该命令，此时你会发现Changes to be committed字样，表示这两个修改等待被提交，也就是git commit。
 	\end{block}
 	\centering
 	\includegraphics[width=0.707\textwidth,keepaspectratio]{images/4-3.png}
@@ -274,13 +274,13 @@
 
 \begin{frame}[fragile]{git log命令}
 	\begin{block}{查看提交历史}
-		\hspace*{2em}git log 把提交历史按时间倒序列出来，最新的一次在最上面，一次提交显示成一块。
-		{\footnotesize
-		\begin{semiverbatim}
+	git log 把提交历史按时间倒序列出来，最新的一次在最上面，一次提交显示成一块。
+	\vspace{-0.8em}
+{
+\begin{semiverbatim}
 commit 121e7be060b55a9ed047d1c961323c81a635553f
 Author: 潘宇琦 <panyuqi@example.com>
 Date:   Wed Nov 25 00:10:18 2026 +0800
-
     新增 file2.txt
 \end{semiverbatim}
 		}
@@ -294,10 +294,12 @@ Date:   Wed Nov 25 00:10:18 2026 +0800
 	\end{block}
 \end{frame}
 
-\begin{frame}[fragile]{git log -{}-oneline}
-	\begin{block}{一行一条，看得更快}
-		{\footnotesize
-		\begin{semiverbatim}
+\begin{frame}[fragile]{git log命令}
+	\begin{block}{git log -{}-oneline}
+	执行git log -{}-oneline可以使得每次提交只显示为一行，方便我们查阅。
+	\vspace{-0.8em}
+		{
+\begin{semiverbatim}
 121e7be 新增 file2.txt
 cd8285d 给 file1.txt 加一行
 a4bb704 新增 file1.txt
@@ -306,17 +308,17 @@ a4bb704 新增 file1.txt
 	\end{block}
 	\begin{block}{省掉了什么}
 		\begin{itemize}
-			\item 哈希只显示前 7 位，区分提交已经够用
-			\item 作者、时间、空行都不显示，一屏能看更多
+			\item 哈希此时只显示前 7 位，足够我们区分提交。
+			\item 作者、时间、空行此时都不会显示。
 		\end{itemize}
 	\end{block}
 \end{frame}
 
-\begin{frame}{git log 看起来卡住了？}
-	\begin{block}{那是因为进了分页器}
-		\hspace*{2em}提交一多，git log 不会一次全部打出来，而是进入分页显示，屏幕最下方会出现一个冒号。
+\begin{frame}{git log命令}
+	\begin{block}{进入分页器}
+		\hspace*{2em}提交数量较多时，git log 不会输出全部提交记录，而是进入分页显示，屏幕最下方会出现一个冒号。
 	\end{block}
-	\begin{block}{这时候不是卡死了}
+	\begin{block}{相关操作}
 		\begin{itemize}
 			\item 按空格或者 PageDown 翻下一页
 			\item 按上下方向键一行一行看
@@ -324,20 +326,21 @@ a4bb704 新增 file1.txt
 		\end{itemize}
 	\end{block}
 \end{frame}
+
 \begin{frame}[fragile]{修改上一次提交}
 	\begin{block}{git commit -{}-amend}
-		\hspace*{2em}刚提交完就发现漏了文件，或者提交说明写错了，可以用它把这次的改动直接补进上一次的提交，不会多出一条历史。
+		\hspace*{2em}刚提交完时如果发现漏了文件，或者提交说明写错了，可以用它把这次的改动直接补进上一次的提交，同时不会多出一条提交记录。
 	\end{block}
-\begin{block}{如果只是漏掉了文件}
-{\footnotesize
+\begin{block}{如果漏掉了文件}
+{
 \begin{semiverbatim}
 git add notes.txt      # 先把漏掉的文件加入暂存区
-git commit --amend     # 再执行，替换上一次提交
+git commit --amend     # 再执行，替换上一次提交(这样写会打开文本编辑器)
 \end{semiverbatim}
 }
 \end{block}
 \begin{block}{如果只是写错了说明}
-{\footnotesize
+{
 \begin{semiverbatim}
 git commit --amend -m "新的提交说明"
 \end{semiverbatim}
@@ -345,7 +348,7 @@ git commit --amend -m "新的提交说明"
 \end{block}
 
 \begin{block}{但是}
-	amend只能改动最近的一次提交，并且会使哈希值发生变化。我们后面会讲到该命令只能在本地使用。
+	amend只能改动最近的一次提交，并且会使哈希值发生变化。我们后面会讲到该命令最好在本地使用。
 \end{block}
 \end{frame}
 
@@ -370,7 +373,7 @@ git restore --staged notes.txt
 
 \begin{frame}[fragile]{git reset命令}
 \begin{block}{git reset}
-把当前分支退回到指定的那一次提交。指定哪一次都可以，不限于上一次。
+把当前分支退回到指定的某一次提交。指定哪一次都可以，不限于上一次。
 {
 \begin{semiverbatim}
 git reset --hard 9c1b2ab    # 用提交哈希指定退回到哪一次
@@ -378,11 +381,11 @@ git reset --hard HEAD~3     # 往前退 3 次
 \end{semiverbatim}
 }
 \end{block}
-	\begin{block}{三种模式，区别在改动还在不在}
+	\begin{block}{该命令的三种模式}
 		\begin{itemize}
-			\item -{}-soft：退提交，改动留在暂存区
-			\item -{}-mixed：默认，退提交，改动留在工作区
-			\item -{}-hard：退提交，改动一起删掉
+			\item -{}-soft：退回到某次提交，回退的所有改动全部留在暂存区
+			\item -{}-mixed：退回到某次提交，回退的所有改动全部留在工作区，默认模式
+			\item -{}-hard：退回到某次提交，回退的所有改动全部删掉
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -402,22 +405,22 @@ build/           # 整个 build 目录及其中的内容
 \end{block}
 
 	\begin{block}{但是}
-		\hspace*{2em}文件一旦被提交过，之后再写进 .gitignore 并不会把它移出仓库，还得单独删掉再提交。
+	如果文件已经被提交过，此时再写进.gitignore 并不会把它移出仓库，只能单独删掉再提交。
 	\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{什么是分支}
 	\begin{block}{从某一次提交上另起一条线}
 \begin{semiverbatim}
-A --- B --- C          main
-A --- B --- C --- D    feature
+A --- B --- C                main
+A --- B --- C --- D --- E    xxxx
 \end{semiverbatim}
-		在 C 这个提交上建一条分支 feature，之后提交的 D 只加在 feature 上，main 仍然停在 C。
+		在 C 这个提交上建一条分支xxxx，会使得之后的提交只记录在xxxx分支上而不记录在main分支上，main分支仍然停在提交C。
 	\end{block}
-	\begin{block}{切到哪条分支，看到的就是哪条线的样子}
+	\begin{block}{切到不同分支}
 		\begin{itemize}
-			\item 切到 feature：文件是 A、B、C、D 一路改下来的结果
-			\item 切回 main：文件又变回 C 的样子，D 那次提交不在
+			\item 切到 xxxx：文件是提交A、B、C、D 一路改下来的结果
+			\item 切回 main：文件变回提交C之后的样子，后面的所有提交都不会显示
 			\item 两条线上的提交互不干扰
 		\end{itemize}
 	\end{block}
@@ -425,13 +428,13 @@ A --- B --- C --- D    feature
 
 \begin{frame}{为什么需要分支}
 	\begin{block}{一个常见的情况}
-		\hspace*{2em}主干上的代码是能跑的，现在要加一个新功能。功能写到一半是残缺的，既不能提交到主干，又不想把已经改好的部分丢掉。
+		\hspace*{2em}主分支上的代码是能跑的，现在我们要加一个新功能。但是功能写到一半时代码肯定是残缺的，此时既不能提交到主干，又不能把写了一半的部分丢掉。
 	\end{block}
-	\begin{block}{分支就是另开一条线}
+	\begin{block}{所以此时需要新开一条支线}
 		\begin{itemize}
 			\item 主干照旧可用，不影响别人
 			\item 新功能在另一条线上写，随便提交
-			\item 写完了合回主干，写废了直接丢掉
+			\item 写完了合并回主干，写废了直接丢掉
 		\end{itemize}
 	\end{block}
 \end{frame}
