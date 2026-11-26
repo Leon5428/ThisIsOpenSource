@@ -439,7 +439,7 @@ A --- B --- C --- D --- E    xxxx
 	\end{block}
 \end{frame}
 
-\begin{frame}[fragile]{分支是一条指针}
+\begin{frame}[fragile]{分支是一个指针}
 	\begin{block}{不是复制文件}
 		\hspace*{2em}新建一个分支，并不会把文件复制一份。分支只是一个指向某次提交的指针，所以创建分支几乎不占空间，也非常快。
 	\end{block}
@@ -467,27 +467,50 @@ git branch -d xxx         # 删除xxx分支
 		\vspace{-0.8em}
 \begin{semiverbatim}
 git switch main
-git merge feature
+git merge xxxx
 \end{semiverbatim}
 	\end{block}
 	\begin{block}{两种结果}
 		\begin{itemize}
-			\item 快进：主干没有新提交，直接挪到 feature 的最新提交上
+			\item 快进：主干没有新提交，直接挪到 xxxx 的最新提交上
 			\item 合并提交：两条线都往前走过了，Git 生成一个新的提交把它们接起来
 		\end{itemize}
 	\end{block}
 \end{frame}
 
+\begin{frame}[fragile]{两种合并结果长什么样}
+	\begin{block}{快进：只挪指针，不产生新提交}
+		{
+			\begin{semiverbatim}
+before main   A --- B --- C
+before xxxx   A --- B --- C --- D --- E
+after  main   A --- B --- C --- D --- E
+after  xxxx   A --- B --- C --- D --- E
+\end{semiverbatim}
+		}
+	\end{block}
+	\begin{block}{合并提交：两条线各走了几步，新建一个提交接起来}
+		{
+			\begin{semiverbatim}
+before main   A --- B --- C --- F
+before xxxx   A --- B --- C --- D --- E
+after  main   A --- B --- C --- F --- M
+after  xxxx   A --- B --- C --- D --- E
+\end{semiverbatim}
+		}
+	\end{block}
+\end{frame}
+
 \begin{frame}[fragile]{解决冲突}
 	\begin{block}{什么时候会冲突}
-		两条分支改了同一个文件的同一处（相邻的几行也算），Git 不知道听谁的，就停下来让你决定。
+		两条分支改了同一个文件的同一处，Git 不知道听谁的，就会停下来让你决定。
 		\vspace{-0.8em}
 \begin{semiverbatim}
 <<<<<<< HEAD
 主线上写的内容
 =======
 分支上写的内容
->>>>>>> feature
+>>>>>>> xxxx
 \end{semiverbatim}
 	\end{block}
 	\begin{block}{解决步骤}
@@ -509,6 +532,23 @@ git merge feature
 	\begin{block}{它能做什么}
 		\hspace*{2em}把本地仓库放到互联网上，让别人也能看到、下载、提意见，甚至直接帮你修改。没有 GitHub，Git 一样能用，但只能在你自己电脑上。
 	\end{block}
+\end{frame}
+
+\begin{frame}{GitHub 的意义}
+	\begin{block}{它不只是一个放代码的网站}
+		\begin{itemize}
+			\item 找资源：想找某个库、想学某个功能怎么实现，第一站就是这里
+			\item 有流程：Issue 讨论、PR 看改动、Review 逐行提意见，都在一个页面里
+			\item 门槛低：不用谁给权限，fork 一份就能改
+			\item 有记录：提交和 PR 都挂在账号下，谁都能看到
+			\item 联系其他开发者：在 Issue 里能直接跟作者和维护者对话
+		\end{itemize}
+	\end{block}
+	\begin{block}{本课程的仓库}
+https://github.com/Leon5428/ThisIsOpenSource
+
+课件、讲义都在这个仓库里，可以给作者点点star。
+\end{block}
 \end{frame}
 
 \begin{frame}{新建一个仓库}
@@ -536,7 +576,6 @@ git clone https://github.com/你的用户名/仓库名.git
 	\end{block}
 \end{frame}
 
-
 \begin{frame}[fragile]{把本地提交推上去}
 \begin{block}{git push}
 本地 commit 之后，历史只存在你的电脑上。push 把它送到远程仓库。
@@ -544,7 +583,7 @@ git clone https://github.com/你的用户名/仓库名.git
 \begin{semiverbatim}
 git add 文件名
 git commit -m "提交说明"
-git push -u origin main    # 第一次推送
+git push -u origin main    # 第一次推送(git init才需要这条命令)
 git push                   # 之后直接这样
 \end{semiverbatim}
 \end{block}
@@ -577,27 +616,27 @@ git push                   # 之后直接这样
 	\begin{block}{本地看到的只是副本}
 		\hspace*{2em}远程仓库里除了 main，还可能有别的分支。clone 只把默认分支检出成工作区，但每一个远程分支都在本地留了一个只读的副本，名字前面带 origin/。
 \begin{semiverbatim}
-git branch -r      # 只看远程分支：origin/main、origin/feature
+git branch -r      # 只看远程分支：origin/main、origin/xxxx
 git branch -a      # 本地和远程的一起列出
 \end{semiverbatim}
 	\end{block}
-	\begin{block}{不能直接改 origin/xxx}
+	\begin{block}{不能直接改 origin/xxxx}
 		\hspace*{2em}它们是引用，不是能提交的分支。要改，先在本地建一个对应的分支。
 	\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{本地分支和远程分支怎么对上}
 \begin{block}{情况一：本地有，远程没有}
-我们在本地建立完一个 feature 分支之后，远程最开始是不知道的，所以需要在第一次推送的时候把远程分支建出来。
+我们在本地建立完一个 xxxx 分支之后，远程最开始是不知道的，所以需要在第一次推送的时候把远程分支建出来。
 \begin{semiverbatim}
-git push -u origin feature    # 推到 origin，并在远程建出同名的 feature 分支
+git push -u origin xxxx    # 推到 origin，并在远程建出同名的xxxx分支
 \end{semiverbatim}
-加了 -u 会绑定远程的这个 feature 分支，以后再提交直接 git push 就行；不加的话，以后敲 git push 会报 fatal: no upstream branch。
+加了 -u 会绑定远程的相对应的xxxx分支，以后再提交直接 git push 就行；不加的话，以后敲 git push 会报 fatal: no upstream branch。
 \end{block}
 \begin{block}{情况二：clone时远程有，本地没有}
-此时本地只有 origin/feature 这个分支的快照，只需要切一下就会建出对应的本地分支。
+此时本地只有 origin/xxxx 这个分支的快照，只需要切一下就会建出对应的本地分支。
 \begin{semiverbatim}
-git switch feature            # 自动建本地 feature，跟踪 origin/feature
+git switch xxxx           # 自动建本地xxxx分支，跟踪 origin/xxxx
 \end{semiverbatim}
 \end{block}
 \end{frame}
